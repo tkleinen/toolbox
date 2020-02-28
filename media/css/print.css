@@ -1,0 +1,300 @@
+@charset "UTF-8";
+/* CSS Document */
+
+	/*	ALGEMENE INSTELLINGEN
+		_____________________________________________________________________ */
+		
+		BODY
+		{
+			font-family:Arial, Helvetica, sans-serif;
+			font-style:normal;
+			font-size: 12px;
+			overflow: auto;	
+			margin:0px;
+			padding:0px;
+		}
+		
+		
+	/*	PAGINA INSTELLINGEN
+		_____________________________________________________________________ */
+		
+		h1 
+		{
+			font-size: 20px;
+			font-weight:normal;
+			color:#726658;
+		}
+		
+		h2
+		{
+			font-size: 28px;
+			font-weight: normal;
+			color:#1C75BC;
+			
+			margin: 43px 0px 0px 0px;
+		}
+		
+		h3
+		{
+			position: relative;
+			float: left;
+			width: 100%;
+			height: auto;
+			
+			font-size: 11px;
+			font-weight: bold;
+			color: #000;
+			
+			margin: 0px;
+		}
+		
+		h4
+		{
+			position:relative;
+			float: left;
+			
+			width: 100%;
+			height: auto;
+			
+			font-size:25px;
+			font-weight:normal;
+			color: #27AAE1;
+			
+			margin:0px;
+		}
+		
+		.wit
+		{
+			position:relative;
+			float:left;
+			
+			width:100%;
+			height:auto;
+			
+			font-size:12px;
+			
+			margin:0px;
+		}
+		
+		.pijl
+		{
+			position:relative;
+			float:left;
+			
+			width:100%;
+			height:auto;
+			
+			font-size:30px;
+			
+			margin:0px;
+		}
+
+		.odd 
+		{
+			background-color: azure
+		}
+
+		.even 
+		{
+			background-color: white
+		}
+		
+
+		
+	/*	HEADER
+	 	_____________________________________________________________________ */
+		
+		#header
+		{
+			
+			width: 920px;
+			height: 144px;
+			
+			margin: auto;
+		
+		} 
+		
+	/* WRAPS
+	   ______________________________________________________________________ */
+		
+		#header_wrap
+         {
+			 position: relative;
+			 margin:auto;
+             width: 100%;
+			 height: 144px;
+                                           
+			 background-image:url(/media/img/toolbox/backgroundheader.png);
+             background-repeat: repeat-x;
+			 background-position: top;
+			 
+        }
+		
+		#content_wrap
+         {
+			position: relative;
+            float: left;
+            width: 100%;
+			 
+			min-height: 530px;
+			height: auto !important;
+			height: 530px;
+                                           
+        }
+		
+		#footer_wrap
+         {
+			position: relative; 
+			float: left; 
+			width: 100%;
+			 
+			height:80px;
+			
+        }
+		
+		#left
+		{ 
+			width: 154px; 
+			vertical-align: top;
+			
+			min-height:530px;
+			height: auto !important;
+			height:530px;
+			
+		}
+		
+		#center
+		{ 
+			width: auto;
+			vertical-align: top;
+			height:530px;
+		}
+		
+		#right
+		{ 
+			width: 154px; 
+			vertical-align: top;
+	
+			min-height:530px;
+			height: auto !important;
+			height:530px;
+	
+		}
+		
+	/*	CONTENT
+	 	_____________________________________________________________________ */
+		
+		#balk 
+		{	
+			width: 920px;
+			min-height:50px;
+			height:auto !important;
+			height: 50px;
+			
+			margin: auto;
+			
+			padding:10px;
+		}
+		
+		#balk1 
+		{
+			position: relative;
+			float: left;
+			
+			width: 205px;
+			height: 205px;
+			
+			margin: 0px 44px 0px 162px;
+		}
+		
+		#balk2
+		{
+			position:relative;
+			float:left;
+			
+			width: 508px;
+			height: 194px;
+			
+		}
+		
+		#vlak
+		{
+			width: 920px;
+			min-height: 530px;
+			height: auto !important;
+			height: 530px;
+			
+			margin: auto;
+		}
+		
+		#vlakboven
+		{
+			position: relative;
+			float: left;
+			
+			width: 920px;
+			height: auto;
+			
+			padding: 0px;
+			margin: 0px;
+		}
+		
+		#vlakonder
+		{
+			position: relative;
+			float: left;
+			
+			width: 920px;
+			height: auto;
+			
+			padding: 0px;
+			margin: 0px;
+		}
+
+			
+	/*	FOOTER
+	 	_____________________________________________________________________ */
+		
+		#footer 
+		{
+			margin:auto;	
+			
+			width: 100%;
+			height: 26px;
+		   
+		}
+		
+		#footertekstlinks 
+		{
+			position:absolute;	
+			float:left;
+			line-height:5px;
+			
+			width: 460px;
+			height: 26px;
+			
+			margin: auto 400px;
+		}
+		
+		#footertekstrechts 
+		{
+			position:absolute;	
+			float:right;
+			line-height:5px;
+			
+			width: 460px;
+			height: 26px;
+			
+			margin: auto 830px;
+		}
+		
+		
+		#footerafbeelding
+		{
+			margin:auto;
+			padding:0px;
+			
+			width:920px;
+			height:54px;
+		}
+

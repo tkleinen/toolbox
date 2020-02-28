@@ -1,0 +1,11 @@
+{% extends 'acacia_base.html' %}
+{% block style %}
+	{{ block.super }}
+	<link href="/media/css/buttons.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block title %}Toolbox Home{% endblock %}
+{% block content %}
+{{location.name}}
+{{location.description}}
+{{location.location}}
+{% endblock %}

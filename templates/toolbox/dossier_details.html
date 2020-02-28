@@ -1,0 +1,36 @@
+{% extends 'acacia.html' %}
+{% block meta %}
+{{map.media}}
+{% endblock %}
+{% block style %}
+	{{ block.super }}
+	<link href="/media/css/buttons.css" rel="stylesheet" type="text/css" />
+	<link href="/media/css/tooltip.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block title %}Toolbox Dossier{% endblock %}
+{% block wrap %}
+<table class="parent">
+<tr>
+   <td>Home<br>
+   		<a href="/"><img title="Home page" src="/media/img/home_white.png"/></a>
+   </td>
+   	 {% if user.is_authenticated %}
+        <td>
+	        {{user.username|capfirst}}'s Archief<br>
+	        <a href="/dossier"><img title="Opgeslagen dossiers openen" src="/media/img/dossiers.jpg"/></a>
+        </td>
+	   <td>
+	   		{{dossier.case_number}}<br>
+	   		<a href="#"><img title="{{dossier.location}}" src="/media/img/leopard-folder.png"/></a>
+	   </td>
+     {% endif %}
+{%for p in parents %}
+   <td>{{p.name}}<br>
+   <a href="#"><img title="{{p.description}}" src="/media/{{ p.thumbnail }}"/></a>
+   </td>
+{% endfor %}
+</tr>
+</table>
+<div class="sep"></div>
+{{map}}
+{% endblock %}

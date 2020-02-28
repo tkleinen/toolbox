@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Change problem | Toolbox site admin</title>
+<link rel="stylesheet" type="text/css" href="Change%20problem%20_%20Toolbox%20site%20admin_files/base.css">
+<link rel="stylesheet" type="text/css" href="Change%20problem%20_%20Toolbox%20site%20admin_files/forms.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/static/admin/css/ie.css" /><![endif]-->
+
+<script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
+
+
+<script type="text/javascript" src="Change%20problem%20_%20Toolbox%20site%20admin_files/a"></script>
+<script type="text/javascript" src="Change%20problem%20_%20Toolbox%20site%20admin_files/core.js"></script>
+<script type="text/javascript" src="Change%20problem%20_%20Toolbox%20site%20admin_files/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="Change%20problem%20_%20Toolbox%20site%20admin_files/jquery_002.js"></script>
+<script type="text/javascript" src="Change%20problem%20_%20Toolbox%20site%20admin_files/jquery.js"></script>
+<script type="text/javascript" src="Change%20problem%20_%20Toolbox%20site%20admin_files/actions.js"></script>
+<script type="text/javascript" src="Change%20problem%20_%20Toolbox%20site%20admin_files/SelectBox.js"></script>
+<script type="text/javascript" src="Change%20problem%20_%20Toolbox%20site%20admin_files/SelectFilter2.js"></script>
+<script type="text/javascript" src="Change%20problem%20_%20Toolbox%20site%20admin_files/collapse.js"></script>
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+
+<body class="toolbox-problem change-form">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name">Toolbox administration</h1>
+
+        </div>
+        
+        <div id="user-tools">
+            Welcome,
+            <strong>Theo</strong>.
+            
+                
+                
+                    <a href="http://localhost:8000/admin/doc/">Documentation</a> /
+                
+                
+                
+                    <a href="http://localhost:8000/admin/password_change/">
+                
+                Change password</a> /
+                
+                
+                    <a href="http://localhost:8000/admin/logout/">
+                
+                Log out</a>
+            
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+<div class="breadcrumbs">
+     <a href="http://localhost:8000/admin/">Home</a> ›
+     <a href="http://localhost:8000/admin/toolbox/">Toolbox</a> ›
+     <a href="http://localhost:8000/admin/toolbox/problem/">Problems</a> ›
+     1.1.1.1.a
+</div>
+
+    
+
+        
+
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        <h1>Change problem</h1>
+        <div id="content-main">
+
+
+  <ul class="object-tools">
+    
+    <li><a href="http://localhost:8000/admin/toolbox/problem/1/history/" class="historylink">History</a></li>
+    
+    
+  </ul>
+
+
+<form enctype="multipart/form-data" action="" method="post" id="problem_form"><div style="display:none"><input name="csrfmiddlewaretoken" value="0171d4ddede3753e2f016640d34d9e66" type="hidden"></div>
+<div>
+
+
+
+
+
+  <fieldset class="module aligned ">
+    
+    
+    
+        <div class="form-row category">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_category" class="required">Category:</label>
+                        
+                            <select name="category" id="id_category">
+<option value="">---------</option>
+<option value="1">Bemaling</option>
+<option value="2">Bemaling &gt; Freatisch</option>
+<option value="4">Bemaling &gt; Freatisch &gt; Stationair</option>
+<option value="5" selected="selected">Bemaling &gt; Freatisch &gt; Stationair &gt; Onttrekkingsdebiet</option>
+<option value="6">Bemaling &gt; Freatisch &gt; Stationair &gt; Verlaging</option>
+<option value="3">Bemaling &gt; Freatisch boven spanningswater</option>
+<option value="10">Drainage</option>
+<option value="12">Drainage &gt; Hooghoudt</option>
+<option value="11">Drainage &gt; Hooghoudt &gt; Opbolling</option>
+<option value="13">Drainage &gt; Hooghoudt &gt; Opbolling &gt; Drains</option>
+<option value="7">Peilverandering</option>
+<option value="8">Peilverandering &gt; Debiet</option>
+<option value="9">Peilverandering &gt; Debiet &gt; Verlaging peil</option>
+</select><a href="http://localhost:8000/admin/categories/category/add/" class="add-another" id="add_id_category" onclick="return showAddAnotherPopup(this);"> <img src="Change%20problem%20_%20Toolbox%20site%20admin_files/icon_addlink.gif" alt="Add Another" height="10" width="10"></a>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row name">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_name" class="required">Name:</label>
+                        
+                            <input name="name" value="1.1.1.1.a" class="vTextField" maxlength="100" id="id_name" type="text">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row description">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_description">Description:</label>
+                        
+                            <textarea id="id_description" rows="10" cols="40" name="description" class="vLargeTextField">Berekening
+ van het stationaire onttrekkingsdebiet voor een bemaling in een 
+freatische aquifer&lt;strong&gt;Dit is strong&lt;/strong&gt;
+&lt;p&gt;Dit is een p&lt;/p&gt;</textarea>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row figure">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_figure">Figure:</label>
+                        
+                            <p class="file-upload">Currently: <a href="http://localhost:8000/media/figures/1.1.1.1_1.jpg">figures/1.1.1.1_1.jpg</a> <span class="clearable-file-input"><input name="figure-clear" id="figure-clear_id" type="checkbox"> <label for="figure-clear_id">Clear</label></span><br>Change: <input name="figure" id="id_figure" type="file"></p>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned collapse closed collapsed">
+    <h2>Formula (<a id="fieldsetcollapser0" class="collapse-toggle" href="#">Show</a>)</h2>
+    
+    
+        <div class="form-row formula">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_formula">Formula:</label>
+                        
+                            <p class="file-upload">Currently: <a href="http://localhost:8000/media/formulas/1.1.1.1_1.jpg">formulas/1.1.1.1_1.jpg</a> <span class="clearable-file-input"><input name="formula-clear" id="formula-clear_id" type="checkbox"> <label for="formula-clear_id">Clear</label></span><br>Change: <input name="formula" id="id_formula" type="file"></p>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row inputs">
+            
+            
+                <div><p class="help"> Hold down "Control", or "Command" on a Mac, to select more than one.</p>
+                    
+                    
+                        <label for="id_inputs">Inputs:</label>
+                        
+                            <script type="text/javascript">addEvent(window, "load", function(e) {SelectFilter.init("id_inputs", "inputs", 0, "/static/admin/"); });</script>
+<a href="http://localhost:8000/admin/toolbox/variable/add/" class="add-another" id="add_id_inputs" onclick="return showAddAnotherPopup(this);"> <img src="Change%20problem%20_%20Toolbox%20site%20admin_files/icon_addlink.gif" alt="Add Another" height="10" width="10"></a>
+                        
+                    
+                    
+                        
+                    
+                <div class="selector"><div class="selector-available"><h2>Available inputs</h2><p class="selector-filter"><label style="width:16px;padding:2px" for="id_inputs_input"><img alt="Filter" src="Change%20problem%20_%20Toolbox%20site%20admin_files/selector-search.gif"></label> <input id="id_inputs_input" type="text"></p><select multiple="multiple" class="filtered" name="inputs_old" id="id_inputs_from">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<option value="6">Q [m3/d] (Debiet)</option><option value="9">R [m] (Reikwijdte)</option><option value="10">hr [m] (Stijghoogte)</option><option value="11">r [m] (Equivalente straal)</option><option value="12">r [m] (Afstand tot bemaling)</option><option value="13">S [-] (Berging)</option><option value="14">qtab [tabel] (Debiet Tabel)</option><option value="15">htab [tabel] (Stijghoogtetabel)</option><option value="16">q [m/d] (Specifiek debiet)</option><option value="17">k1 [m/d] (Doorlatendheid boven drain)</option><option value="18">k2 [m/d] (Doorlatendheid onder drain)</option><option value="19">L [m] (Drainafstand)</option><option value="20">D [m] (Waterniveau in drain tov ondoorlatende laag)</option><option value="21">u [m] (Natte omtrek)</option><option value="22">r [m] (Straal van drain)</option><option value="23">d [m] (Equivalente dikte)</option><option value="24">h [m] (Opbolling tussen drains)</option></select><a class="selector-chooseall" href='javascript:%20(function(){%20SelectBox.move_all("id_inputs_from",%20"id_inputs_to");%20})()'>Choose all</a></div><ul class="selector-chooser"><li><a class="selector-add" href='javascript:%20(function(){%20SelectBox.move("id_inputs_from","id_inputs_to");})()'>Add</a></li><li><a class="selector-remove" href='javascript:%20(function(){%20SelectBox.move("id_inputs_to","id_inputs_from");})()'>Remove</a></li></ul><div class="selector-chosen"><h2>Chosen inputs</h2><p class="selector-filter">Select your choice(s) and click <img alt="Add" src="Change%20problem%20_%20Toolbox%20site%20admin_files/selector-add.gif"></p><select class="filtered" name="inputs" size="0" multiple="multiple" id="id_inputs_to"><option value="1">k [m/d] (Doorlatendheid)</option><option value="2">H [m] (Dikte freatisch pakket)</option><option value="3">dh [m] (Stijghoogteverlaging)</option><option value="4">t [d] (Tijd)</option><option value="5">e [-] (Porositeit)</option><option value="7">L [m] (Lengte)</option><option value="8">B [m] (Breedte)</option></select><a class="selector-clearall" href='javascript:%20(function()%20{%20SelectBox.move_all("id_inputs_to",%20"id_inputs_from");})()'>Clear all</a></div></div></div>
+            
+        </div>
+    
+        <div class="form-row outputs">
+            
+            
+                <div><p class="help"> Hold down "Control", or "Command" on a Mac, to select more than one.</p>
+                    
+                    
+                        <label for="id_outputs">Outputs:</label>
+                        
+                            <script type="text/javascript">addEvent(window, "load", function(e) {SelectFilter.init("id_outputs", "outputs", 0, "/static/admin/"); });</script>
+<a href="http://localhost:8000/admin/toolbox/variable/add/" class="add-another" id="add_id_outputs" onclick="return showAddAnotherPopup(this);"> <img src="Change%20problem%20_%20Toolbox%20site%20admin_files/icon_addlink.gif" alt="Add Another" height="10" width="10"></a>
+                        
+                    
+                    
+                        
+                    
+                <div class="selector"><div class="selector-available"><h2>Available outputs</h2><p class="selector-filter"><label style="width:16px;padding:2px" for="id_outputs_input"><img alt="Filter" src="Change%20problem%20_%20Toolbox%20site%20admin_files/selector-search.gif"></label> <input id="id_outputs_input" type="text"></p><select multiple="multiple" class="filtered" name="outputs_old" id="id_outputs_from">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<option value="1">k [m/d] (Doorlatendheid)</option><option value="2">H [m] (Dikte freatisch pakket)</option><option value="3">dh [m] (Stijghoogteverlaging)</option><option value="4">t [d] (Tijd)</option><option value="5">e [-] (Porositeit)</option><option value="7">L [m] (Lengte)</option><option value="8">B [m] (Breedte)</option><option value="12">r [m] (Afstand tot bemaling)</option><option value="13">S [-] (Berging)</option><option value="14">qtab [tabel] (Debiet Tabel)</option><option value="15">htab [tabel] (Stijghoogtetabel)</option><option value="16">q [m/d] (Specifiek debiet)</option><option value="17">k1 [m/d] (Doorlatendheid boven drain)</option><option value="18">k2 [m/d] (Doorlatendheid onder drain)</option><option value="19">L [m] (Drainafstand)</option><option value="20">D [m] (Waterniveau in drain tov ondoorlatende laag)</option><option value="21">u [m] (Natte omtrek)</option><option value="22">r [m] (Straal van drain)</option><option value="23">d [m] (Equivalente dikte)</option><option value="24">h [m] (Opbolling tussen drains)</option></select><a class="selector-chooseall" href='javascript:%20(function(){%20SelectBox.move_all("id_outputs_from",%20"id_outputs_to");%20})()'>Choose all</a></div><ul class="selector-chooser"><li><a class="selector-add" href='javascript:%20(function(){%20SelectBox.move("id_outputs_from","id_outputs_to");})()'>Add</a></li><li><a class="selector-remove" href='javascript:%20(function(){%20SelectBox.move("id_outputs_to","id_outputs_from");})()'>Remove</a></li></ul><div class="selector-chosen"><h2>Chosen outputs</h2><p class="selector-filter">Select your choice(s) and click <img alt="Add" src="Change%20problem%20_%20Toolbox%20site%20admin_files/selector-add.gif"></p><select class="filtered" name="outputs" size="0" multiple="multiple" id="id_outputs_to"><option value="6">Q [m3/d] (Debiet)</option><option value="9">R [m] (Reikwijdte)</option><option value="10">hr [m] (Stijghoogte)</option><option value="11">r [m] (Equivalente straal)</option></select><a class="selector-clearall" href='javascript:%20(function()%20{%20SelectBox.move_all("id_outputs_to",%20"id_outputs_from");})()'>Clear all</a></div></div></div>
+            
+        </div>
+    
+        <div class="form-row code">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_code">Python code:</label>
+                        
+                            <textarea id="id_code" rows="10" cols="40" name="code" class="vLargeTextField">import math
+R=1.5*math.sqrt(k*H*t/e) # reikwijdte
+r=(L+B)/math.pi # equivalente straal
+hr=H-dh # stijghoogte op afstand r
+Q=math.pi*k*(H*H-hr*hr) / (math.log(R) - math.log(r))
+</textarea>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned collapse closed collapsed">
+    <h2>References (<a id="fieldsetcollapser1" class="collapse-toggle" href="#">Show</a>)</h2>
+    
+    
+        <div class="form-row references">
+            
+            
+                <div><p class="help"> Hold down "Control", or "Command" on a Mac, to select more than one.</p>
+                    
+                    
+                        <label for="id_references">References:</label>
+                        
+                            <script type="text/javascript">addEvent(window, "load", function(e) {SelectFilter.init("id_references", "references", 0, "/static/admin/"); });</script>
+<a href="http://localhost:8000/admin/toolbox/reference/add/" class="add-another" id="add_id_references" onclick="return showAddAnotherPopup(this);"> <img src="Change%20problem%20_%20Toolbox%20site%20admin_files/icon_addlink.gif" alt="Add Another" height="10" width="10"></a>
+                        
+                    
+                    
+                        
+                    
+                <div class="selector"><div class="selector-available"><h2>Available references</h2><p class="selector-filter"><label style="width:16px;padding:2px" for="id_references_input"><img alt="Filter" src="Change%20problem%20_%20Toolbox%20site%20admin_files/selector-search.gif"></label> <input id="id_references_input" type="text"></p><select multiple="multiple" class="filtered" name="references_old" id="id_references_from">
+
+<option value="1">Fraanje (1974) - Bronbemaling</option></select><a class="selector-chooseall" href='javascript:%20(function(){%20SelectBox.move_all("id_references_from",%20"id_references_to");%20})()'>Choose all</a></div><ul class="selector-chooser"><li><a class="selector-add" href='javascript:%20(function(){%20SelectBox.move("id_references_from","id_references_to");})()'>Add</a></li><li><a class="selector-remove" href='javascript:%20(function(){%20SelectBox.move("id_references_to","id_references_from");})()'>Remove</a></li></ul><div class="selector-chosen"><h2>Chosen references</h2><p class="selector-filter">Select your choice(s) and click <img alt="Add" src="Change%20problem%20_%20Toolbox%20site%20admin_files/selector-add.gif"></p><select class="filtered" name="references" size="0" multiple="multiple" id="id_references_to"></select><a class="selector-clearall" href='javascript:%20(function()%20{%20SelectBox.move_all("id_references_to",%20"id_references_from");})()'>Clear all</a></div></div></div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned collapse closed collapsed">
+    <h2>Assumptions (<a id="fieldsetcollapser2" class="collapse-toggle" href="#">Show</a>)</h2>
+    
+    
+        <div class="form-row assumptions">
+            
+            
+                <div><p class="help"> Hold down "Control", or "Command" on a Mac, to select more than one.</p>
+                    
+                    
+                        <label for="id_assumptions">Assumptions:</label>
+                        
+                            <script type="text/javascript">addEvent(window, "load", function(e) {SelectFilter.init("id_assumptions", "assumptions", 0, "/static/admin/"); });</script>
+<a href="http://localhost:8000/admin/toolbox/assumption/add/" class="add-another" id="add_id_assumptions" onclick="return showAddAnotherPopup(this);"> <img src="Change%20problem%20_%20Toolbox%20site%20admin_files/icon_addlink.gif" alt="Add Another" height="10" width="10"></a>
+                        
+                    
+                    
+                        
+                    
+                <div class="selector"><div class="selector-available"><h2>Available assumptions</h2><p class="selector-filter"><label style="width:16px;padding:2px" for="id_assumptions_input"><img alt="Filter" src="Change%20problem%20_%20Toolbox%20site%20admin_files/selector-search.gif"></label> <input id="id_assumptions_input" type="text"></p><select multiple="multiple" class="filtered" name="assumptions_old" id="id_assumptions_from">
+</select><a class="selector-chooseall" href='javascript:%20(function(){%20SelectBox.move_all("id_assumptions_from",%20"id_assumptions_to");%20})()'>Choose all</a></div><ul class="selector-chooser"><li><a class="selector-add" href='javascript:%20(function(){%20SelectBox.move("id_assumptions_from","id_assumptions_to");})()'>Add</a></li><li><a class="selector-remove" href='javascript:%20(function(){%20SelectBox.move("id_assumptions_to","id_assumptions_from");})()'>Remove</a></li></ul><div class="selector-chosen"><h2>Chosen assumptions</h2><p class="selector-filter">Select your choice(s) and click <img alt="Add" src="Change%20problem%20_%20Toolbox%20site%20admin_files/selector-add.gif"></p><select class="filtered" name="assumptions" size="0" multiple="multiple" id="id_assumptions_to"></select><a class="selector-clearall" href='javascript:%20(function()%20{%20SelectBox.move_all("id_assumptions_to",%20"id_assumptions_from");})()'>Clear all</a></div></div></div>
+            
+        </div>
+    
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+<div class="submit-row">
+<input value="Save" class="default" name="_save" type="submit">
+<p class="deletelink-box"><a href="http://localhost:8000/admin/toolbox/problem/1/delete/" class="deletelink">Delete</a></p>
+
+<input value="Save and add another" name="_addanother" type="submit">
+<input value="Save and continue editing" name="_continue" type="submit">
+</div>
+
+
+
+
+
+<script type="text/javascript">
+(function($) {
+    var field = null;
+
+
+})(django.jQuery);
+</script>
+
+
+</div>
+</form></div>
+
+        
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+
+
+</body></html>

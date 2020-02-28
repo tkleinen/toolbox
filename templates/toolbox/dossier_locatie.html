@@ -1,0 +1,73 @@
+{% extends 'acacia.html' %}
+{% block meta %}
+{{map.media}}
+{% endblock %}
+{% block script %}
+{{block.super}}
+<script type="text/javascript">
+function locationChanged(loc) {
+	document.getElementById('close').click();
+}
+</script>
+<style>
+	textarea, input[type="text"] { width: 99%; }
+	textarea { height: 3em; }
+	td {vertical-align: top;}
+	.error { color:red; padding-left: 8px; }
+	#sel select {width:500px;float:left;}
+	#sel focus {width:auto;}
+</style>
+{% endblock script %}
+{% if form.non_form_errors %}
+<p class="error">{{form.non_form_errors}}</p>
+{% endif %}
+{% if integrityerror %}
+<p class="error"></p>
+{% endif %}
+{% block wrap %}
+<table>
+<tr><td><div id="tabbladen">
+    <a id="tab" href="/dossier/{{dossier.id}}/problem" class="normal">Probleemstelling</a>
+    <a id="tab" href="/dossier/{{dossier.id}}/location" class="active">Locatie</a>
+    <a id="tab" href="/dossier/{{dossier.id}}/calc"  class="normal">Berekenen</a>
+    <a id="tab" href="/print/{{dossier.id}}"  class="normal">Afdrukken</a>
+    <a id="tab" href="/dossier/{{dossier.id}}/delete" class="normal">Verwijderen</a>
+</div>
+</td>
+</tr>
+</table>
+
+<form id='form' method="post" action="">
+	{% csrf_token %}
+	{{dossier_form.id}}
+	{{form.id}}
+	<table>
+	<tr><td/><td><h1>Dossier: {{dossier}}</h1></td></tr>
+	<tr><td>Locatie:</td><td><div id="sel">{{dossier_form.location}}</div><input style="float:right" type='submit' value='opslaan' name='submit'/></td>
+	<td><input type="submit" value="Nieuw" name="nieuw"/></td></tr>
+	<tr/>
+	<tr><td colspan="2"><input type="submit" value="plaatje" name="change" id="close" style="visibility:hidden" /></td></tr>
+	<tr>
+    	<td><label for="id_name">Naam:</label></td>
+    	<td>{{ form.name}}</td><td class="error">{{ form.name.errors|join:"," }}</td>
+	</tr>
+	<tr>
+    	<td><label for="id_description">Omschrijving:</label></td>
+    	<td>{{ form.description }}</td><td class="error">{{ form.description.errors|join:"," }}</td>
+	</tr>
+	<tr>
+    	<td><label for="id_address">Adres:</label></td>
+    	<td>{{ form.address }}</td>
+    	{% if form.address.errors %}
+    	<td class="error">{{ form.address.errors|join:"," }}</td>
+    	{% else %}
+    	<td><input type='submit' value='Opzoeken' name='geocode'/></td>
+    	{% endif %}
+	</tr>
+	<tr>
+    	<td><label for="id_location">Kaart:</label></td>
+    	<td>{{ form.location }}</td><td class="error">{{ form.location.errors|join:"," }}</td>
+	</tr>
+	</table>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'acacia.html' %}
+{% block title %} {{block.super}} - Dinoloket {% endblock %}
+{% block wrap %}
+<h2>Beschikbare modellen bij DinoServices voor locatie '{{locatie}}'</h2>
+<table>
+	<tr>
+		<th>Model</th>
+		<th>Versie</th>
+		<th>Resolutie</th>
+		<th>Omschrijving</th>
+		<th>Online referentie</th>
+		<th>Diepte eenheid</th>
+		<th>Diepte referentie</th>
+		<th>Contact</th>
+		<th>Keywords</th>
+	</tr>
+	{% for m in models %}
+		<tr class="{% cycle 'odd' 'even' %}">
+			<td><a href="{{locatie.id}}/model/{{m.modelMetadata.model}}"/>{{m.modelMetadata.model}}</td>
+			<td>{{m.modelMetadata.version}}</td>
+			<td>{{m.modelMetadata.resolution}}</td>
+			<td>{{m.modelMetadata.description}}</td>
+			<td><a href="{{m.modelMetadata.onlineReference}}"/>{{m.modelMetadata.onlineReference}}</td>
+			<td>{{m.modelMetadata.depthUnit}}</td>
+			<td>{{m.modelMetadata.depthreference}}</td>
+			<td>{{m.modelMetadata.contact}}</td>
+			<td>{{m.modelMetadata.keywords}}</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Acacia Grondwater Toolbox</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	{% block meta %}
+	{% endblock %}
+	{% block style %}
+		<link href="/media/css/acacia.css" rel="stylesheet" type="text/css" />
+	{% endblock %}
+ 	<link href="/media/img/toolbox48.ico" rel="icon" type="image/x-ico" />
+	{% block script %}{% endblock %}
+	<title>{% block title %}Acacia Grondwater Toolbox{% endblock %}</title>
+       
+</head>
+{% csrf_token %}
+{% load i18n %}
+
+<body>
+
+<div id="golf"></div>
+
+<div id="header_wrap">
+   
+	<div id="header">
+    
+    	<div id="logo"></div>
+        
+        <div id="navigatie">
+        	
+            <a href="/home/" class="standaard">Home</a>
+            <a href="/toolbox/" class="standaard">Toolbox</a>
+	    <a href="/info/" class="standaard">Informatie</a>
+            <a href="/partners/" class="standaard">Partners</a>
+            <a href="/contact/" class="standaard">Contact</a>
+            <a href="/login/" class="standaard">Login</a>
+            
+        </div>
+    
+    </div>
+   
+</div>
+ 
+ 
+<div id="balk_wrap">
+  
+  <div id="balk">
+	<div class="admin">
+		<font color="#FFFFFF">
+		    {% if user.is_authenticated %}
+		    {% trans 'Welcome,' %}
+		    <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong> | 
+		    <a class="white" href=/accounts/password/change>{% trans 'Change password' %}</a> | 
+		    <a class="white" href=/accounts/logout>{% trans 'Log out' %}</a>&nbsp;&nbsp;
+		    {% endif %}
+	    </font>
+	</div>
+	<div id="balk1">
+    
+        <div id="slideshow" style="width: 160px;">
+            <ul>
+              <li>
+                <img src="/media/uploads/categories/thumbnails/archief.png" alt="" title="" />
+              </li>
+              
+              <li>
+                <img src="/media/uploads/categories/thumbnails/bemaling.png" alt="" title="" />
+              </li>
+              
+              <li>           
+                <img src="/media/uploads/categories/thumbnails/drainage.png" alt="" title="" />
+              </li>
+              
+              <li>           
+                <img src="/media/uploads/categories/thumbnails/grond.png" alt="" title="" />
+              </li>
+              
+              <li>           
+                <img src="/media/uploads/categories/thumbnails/overig.png" alt="" title="" />
+              </li>	  
+              
+              <li>           
+                <img src="/media/uploads/categories/thumbnails/peilverandering.png" alt="" title="" />
+              </li>	
+                                  
+            </ul>
+          </div>     
+          
+    
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <!-- <script src="http://slide-list-image.googlecode.com/files/craftyslide.min.js"></script> -->
+    <script src="/static/js/jquery/craftyslide.min.js"></script>
+	
+	<!--<script src="/static/js/jquery/craftyslide.min.js"></script>-->
+           
+     <script>
+     $("#slideshow").craftyslide();
+     </script>      
+ 
+        <!--<img src="/media/img/toolbox/drainage.png" />-->
+    
+    </div>
+            
+            <div id="balk2">
+              <table width="400" border="0">
+                <tr>
+                  <td height="25px" width="30px"><img src="/media/img/toolbox/check.png" /></td>
+                  <td height="25px"><p class="wit">Tijd besparen door eenvoudiger en efficiënter toetsen van meldingen en vergunningaanvragen</p></td>
+                </tr>
+                <tr>
+                  <td height="25px"><img src="/media/img/toolbox/check.png" /></td>
+                  <td height="25px"><p class="wit">Wizard helpt bij de keuze van de juiste berekeningsmethode</p></td>
+                </tr>
+                <tr>
+                  <td height="25px"><img src="/media/img/toolbox/check.png" /></td>
+                  <td height="25px"><p class="wit">Geïntegreerde koppeling met databanken (o.a. DinoLoket, ervaringswaarden)</p></td>
+                </tr>
+                <tr>
+                  <td height="25px"><img src="/media/img/toolbox/check.png" /></td>
+                  <td height="25px"><p class="wit">Direct toegang tot de benodigde informatie van bodemopbouw en parameterwaarden</p></td>
+                </tr>
+                <tr>
+                  <td height="25px"><img src="/media/img/toolbox/check.png" /></td>
+                  <td height="25px"><p class="wit">GIS-koppeling met Google maps (locatie direct op een kaart beschikbaar)</p></td>
+                </tr>
+                <tr>
+                  <td height="25px"><img src="/media/img/toolbox/check.png" /></td>
+                  <td height="25px"><p class="wit">Standarisatie beoordeling meldingen en vergunningen</p></td>
+                </tr>
+              </table>
+            </div> 	
+            
+     </div>
+    
+    </div>
+   
+</div>
+
+ 
+<div id="content_wrap">
+
+<div id="vlak">
+
+	<div id="vlakboven">
+    
+            <!-- #header-->
+            {% block wrap %}
+            {% endblock %}
+            <!-- #wrapper -->
+
+    
+    </div>
+            
+    <!--<div id="vlakonder"></div>-->
+
+</div>
+   
+<div id="footer_wrap">
+        <div id="footer">
+        
+        	<div id="footertekstlinks"><p align="left">&copy; Copyright 2012 <a class="white" href="http://www.acaciawater.com">Acacia Water</a></p></div>
+       		<div id="footertekstrechts"><p align="right">Design: <a class="white" href="http://www.komplot.com"><font color="#FFFFFF">Kom Plot!</font></a></p></div>
+        
+        </div>
+	<div id="footerafbeelding">
+        
+        <!--<img src="/media/img/toolbox/footer.jpg" />-->
+        <table width="400" border="0">
+          <tr>
+            <td><a href="http://www.acaciawater.com"><img src="/media/img/toolbox/acacia.png" border="0" /></a></td>
+            <td><a href="http://www.wrij.nl"><img src="/media/img/toolbox/waterschaprijnenijssel.png" border="0" /></a></td>
+            <td><a href="http://www.veluwe.nl"><img src="/media/img/toolbox/waterschapveluwe.png" border="0" /></a></td>
+            <td><a href="http://www.scheldestromen.nl"><img src="/media/img/toolbox/scheldestromen.png" border="0" /></a></td>
+            <td><a href="http://www.zuiderzeeland.nl"><img src="/media/img/toolbox/zuiderzeeland.png" border="0"/></a></td>
+            <td><a href="http://www.stowa.nl"><img src="/media/img/toolbox/stowa.png" border="0" /></a></td>
+          </tr>
+        </table>
+        
+        
+        <div>
+   
+</div>
+
+</body>
+</html>

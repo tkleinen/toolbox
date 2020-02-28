@@ -1,0 +1,60 @@
+{% extends 'acacia.html' %}
+{% block wrap %}
+<div id="tabbladen">
+    <a id="tab" href="/dossier/{{dossier.id}}/problem" class="active">Probleemstelling</a>
+    <a id="tab" href="/dossier/{{dossier.id}}/location" class="normal">Locatie</a>
+    <a id="tab" href="/dossier/{{dossier.id}}/calc"  class="normal">Berekenen</a>
+    <a id="tab" href="/print/{{dossier.id}}"  class="normal">Afdrukken</a>
+    <a id="tab" href="/dossier/{{dossier.id}}/delete" class="normal">Verwijderen</a>
+</div>
+
+<h2>Dossier: {{dossier}}</h2>
+<br />
+<form method="post" action="">
+	{% csrf_token %}
+
+<table width="100%" border="0">
+	<tr>
+		<td>Categorie: {{dossier.problem}} {{dossier.problem.category}}<br></td>
+	</tr>
+	<tr>
+		<td><a href="/wizard/{{dossier.problem.category.parent.id}}?url=/dossier/{{dossier.id}}/problem">
+			<img id="img" 
+			src={% if dossier.problem.figure %}"/media/{{dossier.problem.figure}}"{% else %}"/media/{{dossier.problem.category_figure}}"{% endif %}
+			title="{{dossier.problem.description}}.&#10;(klik om te wijzigen)"
+			/>
+			</a><br/>
+			<input type='submit' value='Opslaan' name='save'/>
+		</td>
+	</tr>
+	<tr>
+		<td>{% if dossier.problem.formula %} <br> <img id="img" src="/media/{{dossier.problem.formula}}" /> {% endif %}
+		</td>
+	</tr>
+	<tr>
+		<td>
+		{% if dossier.problem.references.all|length > 0 %} <br>
+			<b>Referenties</b>:
+			<ul>
+				{% for ref in dossier.problem.references.all %}
+				<li><a href="/media/{{ref.link}}">{{ref}}</font></a></li>
+				{% empty %} (geen referenties) {% endfor %}
+			</ul> 
+		{% endif %}
+		</td>
+	</tr>
+	<tr>
+		<td>
+		{% if dossier.problem.assumptions.all|length > 0 %} <br>
+			<b>Aannamess</b>:
+			<ul>
+				{% for a in dossier.problem.assumptions.all %}
+				<li>{{a}}</font></a></li>
+				{% empty %} (geen aannames) {% endfor %}
+			</ul> 
+		{% endif %}
+		</td>
+	</tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,136 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	height: 100%;
+}
+body {
+	font: 12pt Arial, Tahoma, Verdana, sans-serif;
+	height: 100%;
+	background: #BBD3EC
+}
+a {
+	color: blue;
+	outline: none;
+	text-decoration: underline;
+}
+a:hover {
+	text-decoration: none;
+}
+p {
+	margin: 0 0 18px
+}
+img {
+	border: none;
+}
+input {
+	vertical-align: middle;
+}
+#wrapper {
+	width: 100%;
+	min-width: 1000px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+#header {
+    background: #2872BA;
+	height: 64px;
+	width: 100%;
+	color: white;
+	font: 12pt Tahoma, Arial, Helvetica, sans-serif;
+	text-align: right;
+	line-height: 2em;
+}
+
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+	width: 100%;
+	padding: 0 0 100px;
+	height: 1%;
+	position: relative;
+}
+#middle:after {
+	content: '.';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+#container {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+}
+#content {
+	padding: 0 320px;
+	background: #BBD3EC;
+}
+
+
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#sideLeft {
+	float: left;
+	width: 300px;
+	margin-left: -100%;
+	position: relative;
+	background: white;
+}
+
+
+/* Sidebar Right
+-----------------------------------------------------------------------------*/
+#sideRight {
+	float: left;
+	margin-right: -3px;
+	width: 250px;
+	margin-left: -250px;
+	position: relative;
+	background: white;
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+	margin: -65px auto 0;
+	min-width: 1000px;
+	height: 64px;
+	position: relative;
+	border-top:thin dotted #417690;
+	background: #2872BA;
+}
+
+#footer img {
+	height: 50px;
+	border: none;
+	float: left;
+}
+
+.odd {
+	background-color: azure
+}
+
+.even {
+	background-color: white
+}
+
+#cattree {
+	border: thin solid orange;
+}
+
+#cat_header {
+    background: #417690;
+	height: 24px;
+	width: 100%;
+	color: blue;
+	font: 12px Tahoma, Arial, Helvetica, sans-serif;
+}

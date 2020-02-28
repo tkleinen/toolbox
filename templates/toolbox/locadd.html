@@ -1,0 +1,51 @@
+{% extends 'acacia.html' %}
+{% block title %}{{block.super}} - Locatie {% if mode == 'add' %}toevoegen{% else %}wijzigen{% endif %}{% endblock title %}
+{% block meta %}
+{{form.media}}
+{% endblock %}
+{% block style %}
+{{block.super }}
+<style>
+	textarea, input[type="text"] { width: 99%; }
+	textarea { height: 3em; }
+	td {vertical-align: top;}
+	.error { color:red; padding-left: 8px; }
+</style>
+{% endblock %}
+{% block wrap %}
+{% if form.non_form_errors %}
+<p class="error">{{form.non_form_errors}}</p>
+{% endif %}
+{% if integrityerror %}
+<p class="error"></p>
+{% endif %}
+<form id='form' method="post" action="">
+	{% csrf_token %}
+	{{ form.id }}
+	<table>
+	<tr>
+    	<td><label for="id_name">Naam:</label></td>
+    	<td>{{ form.name}}</td><td class="error">{{ form.name.errors|join:"," }}</td>
+	</tr>
+	<tr>
+    	<td><label for="id_description">Omschrijving:</label></td>
+    	<td>{{ form.description }}</td><td class="error">{{ form.description.errors|join:"," }}</td>
+	</tr>
+	<tr>
+    	<td><label for="id_address">Adres:</label></td>
+    	<td>{{ form.address }}</td>
+    	{% if form.address.errors %}
+    	<td class="error">{{ form.address.errors|join:"," }}</td>
+    	{% else %}
+    	<td><input type='submit' value='Opzoeken' name='geocode'/></td>
+    	{% endif %}
+	</tr>
+	<tr>
+    	<td><label for="id_loction">Locatie:</label></td>
+    	<td>{{ form.location }}</td><td class="error">{{ form.location.errors|join:"," }}</td>
+	</tr>
+
+	<tr><td/><td align="right"><input type="submit" value={% if mode == 'add' %}"Locatie toevoegen" {% else %}"Locatie wijzigen"{% endif %} name={{mode}}/></td></tr>
+	</table>
+</form>
+{% endblock wrap %}

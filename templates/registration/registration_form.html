@@ -1,0 +1,77 @@
+{% extends "registration/base.html" %}
+{% load i18n %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+<p class="error">{{form.non_field_errors}}</p>
+{% endif %}
+
+  <h1>Account aanmaken</h1>
+  
+  <form method="post" action="" class="wide">
+	{% csrf_token %}
+	<table>
+	<tr>
+      <td><label for="id_username">{% trans 'Username' %}:</label></td>
+      <td>{{ form.username }}
+		{% if form.username.errors %}
+        	<span class="error">{{ form.username.errors.as_text }}</span>
+      	{% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td><label for="id_first_name">Voornaam:</label>
+	  </td>
+	  <td>{{ form.first_name }}
+	    {% if form.first_name.errors %}
+        	<span class="error">{{ form.first_name.errors.as_text }}</span>
+      	{% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td><label for="id_last_name">Achternaam:</label></td>
+      <td>{{ form.last_name }}
+	      {% if form.last_name.errors %}
+	        <span class="error">{{ form.last_name.errors.as_text }}</span>
+	      {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td><label for="id_email">Email adres:</label></td>
+      <td>{{ form.email }}
+	      {% if form.email.errors %}
+	        <span class="error">{{ form.email.errors.as_text }}</span>
+	      {% endif %}
+	  </td>
+    </tr>
+    <tr>
+      <td><label for="id_password1">{% trans 'Password' %}:</label></td>
+      <td>{{ form.password1 }}      
+	      {% if form.password1.errors %}
+	        <span class="error">{{ form.password1.errors.as_text }}</span>
+	      {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td><label for="id_password2">{% trans 'Password (again)' %}:</label></td>
+      <td>{{ form.password2 }}
+		{% if form.password2.errors %}
+		  <span class="error">{{ form.password2.errors.as_text }}</span>
+		{% endif %}
+      <span class="submit"><input type="submit" value="{% trans 'Register' %}"></span>
+      </td>
+    </tr>
+	</table>
+  </form>
+  
+{% endblock %}
+
+{% block content-related %}
+<p>Vul de bovenstaande gegevens in en uw account wordt aangemaakt.
+U ontvangt een email met instructies om uw registratie af te ronden. <br>
+Wij gebruiken uw email adres alleen voor registratie doeleinden.</p>
+
+{% endblock %}

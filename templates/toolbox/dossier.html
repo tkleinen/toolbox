@@ -1,0 +1,42 @@
+{% extends 'acacia.html' %}
+{% block meta %}
+{{map.media}}
+{% endblock %}
+{% block style %}
+{{ block.super }}
+<style>
+.fld {
+  width: 64px;
+  padding: 8px;
+}
+td {
+  text-align: center;
+}
+</style>
+{% endblock %}
+{% block title %}Toolbox Dossiers{% endblock %}
+{% block wrap %}
+{% if doss %}
+<table class="dossiers">
+<tr>
+{% for d in doss %}
+   <td>
+   {{d.case_number}}<br>
+   <a href="dossier/{{d.id}}/problem"><img class="fld" title="{{d.location}}" src="/media/img/leopard-folder.png"/></a>
+   </td>
+   {% if forloop.last %}
+	<td>Nieuw dossier<br><a href="dossier/new"><img class="fld" title="Niew dossier aanmaken" src="/media/img/leopard-folder.png"/></a></td>
+     </tr>
+   {% else %}
+     {% if forloop.counter|divisibleby:"8" %}
+       </tr><tr>
+     {% endif %}
+   {% endif %}
+{% endfor %}
+</table>
+{% else %}
+<div style="float:left;margin-top:2em;">Nieuw dossier<br/>
+<a href="dossier/new"><img class="fld" title="Niew dossier aanmaken" src="/media/img/leopard-folder.png"/></a>
+</div>
+{% endif %}
+{% endblock %}

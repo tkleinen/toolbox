@@ -1,0 +1,29 @@
+{% extends 'acacia.html' %}
+{% block title %}Grondwater Toolbox{% endblock %}
+{% block wrap %}
+
+<table class="welcome">
+<tr>
+<td colspan="3"><h1>Grondwater Toolbox</h1></td>
+</tr>
+{% for c in cats %}
+   <td>
+   <b>{{c.name}}</b><br/><br/>
+   <a href="/wizard/{{c.id}}"><img title="{{c.description}}" src="/media/{{ c.thumbnail }}" border="0"/></a>
+   <br/><br/>
+   </td>
+   {% if forloop.last %}
+   	 {% if user.is_authenticated %}
+        <td><b>{{user.username|capfirst}}'s Archief</b><br><br />
+        <a href="/dossier"><img title="Opgeslagen dossiers van {{user.first_name}} {{user.last_name}} openen" src="/media/img/dossiers.jpg" border="0"/></a>
+   	<br/><br/>
+        </td></tr>
+     {% endif %}
+   {% else %}
+     {% if forloop.counter|divisibleby:"3" %}
+       </tr><tr>
+     {% endif %}
+   {% endif %}
+{% endfor %}
+</table>
+{% endblock %}

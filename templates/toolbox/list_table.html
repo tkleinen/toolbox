@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>
+{% if headers %}
+<tr>
+{% for hdr in headers %}
+<th>{{hdr}}</th>
+{% endfor %}
+</tr>
+{% endif %}
+{% for row in table %}
+<tr class="{% cycle 'odd' 'even' %}">
+{% for col in row %}
+	<td>{{col}}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

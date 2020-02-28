@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	{% block meta %}
+	{% endblock %}
+	{% block style %}
+		<link href="/media/css/acacia.css" rel="stylesheet" type="text/css" />
+	{% endblock %}
+ 	<link href="/media/img/toolbox48.ico" rel="icon" type="image/x-ico" />
+	{% block script %}{% endblock %}
+	<title>{% block title %}Grondwater Toolbox{% endblock %}</title>
+</head>
+{% csrf_token %}
+{% load i18n %}
+
+<body>
+
+<div id="golf"></div>
+
+<div id="header_wrap">
+   
+	<div id="header">
+    
+    	<div id="logo"></div>
+        
+        <div id="navigatie">
+        	
+            <a href="/home/" class="standaard">Home</a>
+            <a href="/toolbox/" class="standaard">De Toolbox</a>
+            <a href="/info/" class="standaard">Informatie</a>
+            <a href="/partners/" class="standaard">Partners</a>
+            <a href="/contact/" class="standaard">Contact</a>
+            <a href="/login/" class="standaard">Login</a>
+            
+        </div>
+    
+    </div>
+   
+</div>
+ 
+ 
+<div id="balk_wrap">
+  
+  <div id="balk">
+	<div class="admin">
+		<font color="#FFFFFF">
+		    {% if user.is_authenticated %}
+		    {% trans 'Welcome,' %}
+		    <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong> | 
+		    <a class="white" href=/accounts/password/change>{% trans 'Change password' %}</a> | 
+		    <a class="white" href=/accounts/logout>{% trans 'Log out' %}</a>&nbsp;&nbsp;
+		    {% endif %}
+	    </font>
+	</div>
+{% block parts %}
+    {% if parents %}
+	<table class="parent" border="0">
+       <tr><td><a href="/toolbox/{% if url %}?url={{url}}{% endif %}"><img title="Toolbox wizard startpagina" src="/media/img/home_white.png" height="50px"/></a></td>
+            {%for p in parents %}
+              <td valign="middle"><p class="pijl">&raquo;</p></td>
+              <td><a href="/wizard/{{p.id}}{% if url %}?url={{url}}{% endif %}"><img title="{{p.description}}" src="/media/{{ p.thumbnail }}" height="50px"/></a></td>
+            {% endfor %}
+          {% endif %}
+       </tr>
+   </table>
+{% endblock parts %}
+ 
+     </div>
+    
+    </div>
+   
+<div id="content_wrap">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td id="left">{% block left %}&nbsp;{% endblock %}</td>
+    <td id="center" valign="top">
+    
+    <div id="vlak">
+                {% block banner %}
+                {% endblock %}
+                {% block wrap %}
+                {% endblock %}
+    </div>
+    </td>
+    <td id="right">{% block right %}&nbsp;{% endblock %}</td>
+  </tr>
+</table>
+
+</div>
+   
+<div id="footer_wrap">
+   
+        <div id="footer">
+        
+        	<div id="footertekstlinks"><p align="left">&copy; Copyright 2012 <a class="white" href="http://www.acaciawater.com">Acacia Water</a></p></div>
+       		<div id="footertekstrechts"><p align="right">Design: <a class="white" href="http://www.komplot.com"><font color="#FFFFFF">Kom Plot!</font></a></p></div>
+        
+        </div>
+        
+  		<div id="footerafbeelding">
+        
+        <!--<img src="/media/img/toolbox/footer.jpg" />-->
+        <table width="400" border="0">
+          <tr>
+            <td><a href="http://www.acaciawater.com"><img src="/media/img/toolbox/acacia.png" border="0" /></a></td>
+            <td><a href="http://www.wrij.nl"><img src="/media/img/toolbox/waterschaprijnenijssel.png" border="0" /></a></td>
+            <td><a href="http://www.veluwe.nl"><img src="/media/img/toolbox/waterschapveluwe.png" border="0" /></a></td>
+            <td><a href="http://www.scheldestromen.nl"><img src="/media/img/toolbox/scheldestromen.png" border="0" /></a></td>
+            <td><a href="http://www.zuiderzeeland.nl"><img src="/media/img/toolbox/zuiderzeeland.png" border="0"/></a></td>
+            <td><a href="http://www.stowa.nl"><img src="/media/img/toolbox/stowa.png" border="0" /></a></td>
+          </tr>
+        </table>
+        
+        
+        <div>
+   
+</div>
+
+</body>
+</html>

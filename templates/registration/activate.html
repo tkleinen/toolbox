@@ -1,0 +1,13 @@
+{% extends "registration/base.html" %}
+
+{% block title %}Account geactiveerd{% endblock %}
+
+{% block content %}
+  <h1>Account geactiveerd.</h1>
+  {% load humanize %}
+  {% if account %}
+    <p>Bedankt voor uw registratie! U kunt nu <a href="/accounts/login/">inloggen</a>.</p>
+  {% else %}
+    <p>Sorry, er ging iets fout. De activeringslink is niet correct of de activeringssleutel is verlopen. Activeringssleutels zijn {{ expiration_days|apnumber }} dagen geldig.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+<body>
+<h1>{{cat}}</h1>
+<p>{{cat.description}}</p>
+<img width="400px" height="300px" src="/media/{{cat.thumbnail}}"/>
+{% if problems|length > 0 %}
+<table>
+<th>Probleem</th><th>Omschrijving</th>
+{% autoescape off %}
+{% for p in problems %}
+<tr class="{% cycle 'odd' 'even' %}"><td><a href="/problem/{{p.id}}">{{p.name}}</a></td><td>{{p.description}}</td></tr>
+{% endfor %}
+{% endautoescape %}
+</table>
+{% else %}
+<p><i>(nog geen probleem in deze categorie uitgewerkt..)</i></p>
+{% endif %}
+</body>

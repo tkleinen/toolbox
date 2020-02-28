@@ -1,0 +1,28 @@
+{% extends 'acacia.html' %}
+{% block meta %}
+{{map.media}}
+{% endblock %}
+{% block script %}
+{{block.super}}
+<script type="text/javascript">
+function locationChanged(loc) {
+	document.getElementById('close').click();
+}
+</script>
+<style>
+	#sel select {width:500px;}
+	#sel focus {width:auto;}
+</style>
+{% endblock script %}
+{% block wrap %}
+<form id='form' method="post" action="">
+	{% csrf_token %}
+	{{form.id}}
+	<table>
+	<tr><td><div id="sel">{{form.location}}</div></td><td align="right"><input type='submit' value='selecteer' name='submit'/></td></tr>
+	<tr/>
+	<tr><td colspan="2">{{map}}</td></tr>
+	<tr><td colspan="2"><input type="submit" value="plaatje" name="change" id="close" style="visibility:hidden" /></td></tr>
+	</table>
+</form>
+{% endblock wrap %}

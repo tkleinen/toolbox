@@ -1,0 +1,136 @@
+{% extends 'acacia.html' %}
+{% block meta %}
+{{map.media}}
+{% endblock %}
+{% block script %}
+{{block.super}}
+<script type = "text/javascript">
+function popup(mylink, windowname)
+{
+	if (! window.focus)return true;
+	var href;
+	if (typeof(mylink) == 'string')
+	   href=mylink;
+	else
+	   href=mylink.href;
+	window.open(href, windowname);
+	return false;
+}
+</script>
+{% endblock script %}
+{% block wrap %}
+
+<div id="tabbladen">
+
+    <a id="tab" href="#" class="active" onClick="SetTab(this,'tab_1');">Probleemstelling</a>
+    <a id="tab" href="#" class="normal" onClick="SetTab(this,'tab_2');">Locatie</a>
+    <a id="tab" href="#" class="normal" onClick="SetTab(this,'tab_3');">Berekenen</a>
+
+                      
+</div>
+
+<h2>Dossier: {{dossier}}</h2><br /><br />
+
+<div id="tabinhoud">
+
+    <!-- probleemstelling -->
+    	
+         <div id="tab_1">
+         
+        <table width="100%" border="0">
+          <tr>
+            <td>Categorie: {{dossier.problem}} {{dossier.problem.category}}<br></td>
+          </tr>
+          <tr>
+            <td><a href="/wizard/{{dossier.problem.category.parent.id}}?url=/dossier/{{dossier.id}}"><img id="img" width="400px" height="300px" src={% if dossier.problem.figure %}"/media/{{dossier.problem.figure}}"{% else %}"/media/{{dossier.problem.category_figure}}"{% endif %}/></a></td>
+          </tr>
+          <tr>
+            <td>{% if dossier.problem.formula %}
+			<br>
+			<img id="img" src="/media/{{dossier.problem.formula}}"/>
+		{% endif %}</td>
+          </tr>
+          <tr>
+            <td>
+                {% if dossier.problem.references.all|length > 0 %}
+            	<br>
+            	<b>Referenties</b>:
+            	<ul>
+            	{% for ref in dossier.problem.references.all %}
+                <li><a href="/media/{{ref.link}}"><font color="#61534a">{{ref}}</font></a></li>
+            	{% empty %}
+                (geen referenties)
+           		{% endfor %}
+            	</ul>
+            	{% endif %}
+        </td>
+          </tr>
+		</table>
+        
+        </div>
+	
+    <div id="tab_2" style="visibility:hidden; display: none;"> <!-- locatie -->
+    
+    <table width="400" border="0">
+      <tr>
+        <td>Locatie: {{dossier.location}}<br></td>
+      </tr>
+      <tr>
+      	<td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>{{map}}</td>
+      </tr>
+    </table>
+    <br/><br/>
+    
+    </div>
+    
+    <div id="tab_3" style="visibility:hidden; display: none;"> <!-- invoergegevens -->
+    
+    	<table>
+        <td><a style="float:left" href="/admin/toolbox/case/{{dossier.id}}"><font color="#61534a">veranderen</font></a></td>
+        <td><a style="float:left" href="/dino/{{dossier.location.id}}"><font color="#61534a">gegevens zoeken</font></a></td>
+        </tr>
+        </table>
+        <table>
+        <tr>
+        <th>Omschrijving</th>
+        <th>Symbool</th>
+        <th>Waarde</th>
+        <th>Eenheid</th>
+        </tr>
+        {% for inp in input %}
+        <tr class="{% cycle 'odd' 'even' %}">
+            <td>{{ inp.variable.name }}</td>
+            <td>{{ inp.variable.symbol}}</td>
+            <td>{{ inp.value }}</td>
+            <td>{{ inp.variable.unit}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+        <!-- <td colspan="3"><a href="/admin/toolbox/parameter/?location__id__exact={{dossier.location.id}}" onclick="return popup(this,'Bewerken')">Bewerken</a></td> -->
+        <td colspan="3"><a href="/edit/{{dossier.id}}"><font color="#61534a">Bewerken</font></a></td>
+        <td><a href="/calc/{{dossier.id}}"><font color="#61534a">Berekenen</font></a></td>
+        </tr>
+        </table> <br/><br/>
+       
+    
+    </div>
+    
+    <div id="tab_4" style="visibility:hidden; display: none;"> <!-- resultaten -->
+    
+    <table width="400" border="0">
+      <tr>
+        <td><h1>inhoud volgt</h1></td>
+      </tr>
+    </table>
+    	      
+
+    </div>
+
+</div>
+
+<script language="javascript" src="/media/js/tabbladen/settab.js"></script>
+
+{% endblock %}

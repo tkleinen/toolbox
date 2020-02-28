@@ -1,0 +1,25 @@
+{% extends 'acacia.html' %}
+{% block style %}
+   {{block.super}}
+    <style>
+      .error {
+	color:red;
+      }
+      div .related {
+      	color:gray;
+      	font: 10pt Tahoma, Arial, Helvetica;
+      	font-size: small;
+      }
+      div #content {float: left; clear:both;}
+    </style>
+{% endblock %}
+{% block wrap %}
+    <div id="sidebar">
+        {% block sidebar %}{% endblock %}
+    </div>
+    <div id="content">
+	{% block content %}{% endblock %}
+        {% block main_content %}{% endblock %}
+	<div class="related">{% block content-related %}{% endblock %}</div>
+    </div>
+{% endblock %}

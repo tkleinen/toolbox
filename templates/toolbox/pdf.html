@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<style>
+		body {
+			font: 10pt verdana,tahoma,sans-serif;
+		}
+		td, th {
+			padding-right: 1em;
+		}
+		th {
+			text-align: left;
+			padding-top: 1em;
+		}
+		td.left
+		{
+			font: 10pt verdana,tahoma,sans-serif;
+			width: 200px;
+		}
+		td.data
+		{
+			font: 10pt verdana,tahoma,sans-serif;
+			width: 100px;
+		}
+		tr.odd {background:white;}
+		tr.even {background:azure;}
+		div.container {
+			width: 800px;
+			background: white;
+			margin: 0 0;
+		}
+		.footnote {
+			font: 8pt tahoma, verdana, sans-serif;
+			color: gray;
+			float: right;
+		}
+		img.btn {
+			float: right;
+			height: 48px;
+			padding-right: 8px;
+		}
+	</style>
+	<script type="text/javascript">
+		function afdrukken(id) {
+			document.getElementById('bar').style.visibility= 'hidden';
+			window.print();
+			document.getElementById('bar').style.visibility = 'visible';
+		}
+	</script>
+	{{map.media}}
+</head>
+<body>
+<div class="container">
+{% if not pdf %}
+<div id="bar">
+<a href="javascript:afdrukken()"><img class="btn" title="Afdrukken" src="/media/img/print48.png"/></a>
+<a href="/printpdf/{{case.id}}"><img class="btn" title="Bewaren als PDF" src="/media/img/adobe48.png"/></a>
+</div>
+{% endif %}
+<table>
+<tr><td/><td>
+</td></tr>
+<tr><td class="left">Zaaknummer:</td><td>{{ case.case_number }}</td></tr>
+<tr><td class="left">Datum:</td><td>{{ case.date_modified }}</td></tr>
+<tr><td class="left">Behandelaar:</td><td>{{case.user.first_name}} {{case.user.last_name}} </td></tr>
+<tr><td class="left">Locatie:</td><td>{{case.location}}</td></tr>
+<tr><td class="left">Methode:</td><td>{{case.problem.category_name}}</td></tr>
+<tr><td class="left">Omschrijving:</td><td>{{case.problem.description}}</td></tr>
+{% if case.problem.assumptions|length > 0 %}
+	{% for a in case.problem.assumptions.all %}
+		<tr><td>
+		{% if forloop.first %}Aannames:{% endif %}
+		</td><td>-&nbsp;{{a}}</td>
+	{% endfor %}
+{% endif %}
+{% if case.problem.references|length > 0 %}
+	{% for r in case.problem.references.all %}
+		<tr><td>
+		{% if forloop.first %}Referenties:{% endif %}
+		</td><td>{{r}}</td>
+	{% endfor %}
+{% endif %}
+</table>
+<br>
+<table>
+<tr>
+	<td>
+		<table>
+			<tr>
+				<th>Invoer</th>
+				<th>Symbool</th>
+				<th>Waarde</th>
+				<th>Eenheid</th>
+			</tr>
+			{% for par in case.inputs %}
+			<tr class="{% cycle 'odd' 'even' %}">
+				<td class="left">{{par.variable.name}}</td>
+				<td class="data">{{par.variable.symbol}}</td>
+				<td class="data">{{par.value|floatformat}}</td>
+				<td class="data">{{par.variable.unit}}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				<th>Uitvoer</th>
+				<th>Symbool</th>
+				<th>Waarde</th>
+				<th>Eenheid</th>
+			</tr>
+			{% for par in case.outputs %}
+			<tr class="{% cycle 'odd' 'even' %}">
+				<td class="left">{{par.variable.name}}</td>
+				<td class="data">{{par.variable.symbol}}</td>
+			{% if par.variable.unit == "tabel" %}
+			<td></td>
+			<td><a href="/plot/{{par.id}}">Grafiek</a></td>
+			{% else %}
+				<td class="data">{{par.value|floatformat}}</td>
+				<td class="data">{{par.variable.unit}}</td>
+			{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+	</td>
+	<td>
+		<table>
+			<tr><td valign="top"><img width="300" src="/media/{% if case.problem.figure %}{{ case.problem.figure }}{% else %}{{ case.problem.category_figure }}{% endif %}"/></td></tr>
+			<tr><td align="center"><img width="150" src="/media/{{ case.problem.formula }}"/></td></td></tr>
+		</table>
+	</td>
+</tr>
+</table>
+{{map}}
+{{case.location}}, {{case.location.latlon}}
+{{case.location.description}}
+<div class="footnote">www.grondwatertoolbox.nl</div>
+<hr/>
+</body>

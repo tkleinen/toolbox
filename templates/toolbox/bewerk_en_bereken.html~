@@ -1,0 +1,115 @@
+{% extends 'acacia.html' %}
+{% block style %}
+	{{ block.super }}
+	<style>
+	td, th
+	{
+		padding: 4px;
+	}
+	th
+	{
+		color: white;
+		background: rgb(30,125,183);
+		text-align: left;
+	}
+	table td input[type="text"]
+	{
+		font: inherit;
+		color: inherit;
+		border: none;
+		background: transparent;
+	}
+	a:link, a:visited {
+		font: inherit;
+		color: inherit;
+		text-decoration: underline;
+	}
+	.errorlist {color: red;}
+	</style>
+{% endblock style %}
+{% block wrap %}
+<div class="sep"></div>
+<h1>{{problem}}</h1>
+
+{% if formset.errors %}
+<p class="error">{{formset.errors.all}}</p>
+{% endif %}
+{% if formset.non_form_errors %}
+<p class="error">{{formset.non_form_errors}}</p>
+{% endif %}
+<form method="post" action="">
+	{% csrf_token %}
+	{{formset.management_form}}
+	<table>
+		<tr><td valign="top">
+		<table>
+		<tr>
+		<th>Omschrijving</th>
+		<th>Symbool</th>
+		<th>Waarde</th>
+		<th>Eenheid</th>
+		</tr>
+	 	{% for f, i in fi %}
+	 	{% if f.errors %}<div class="error">{{f.non_field_errors}}</div>{% endif %}
+		<tr class="{% cycle 'odd' 'even' %}">
+			<td>{{ i.name }}</td>
+			<td>{{ i.symbol}}</td>
+			<td>{{ f.value }}{% if f.value.errors %}:&nbsp;<div class="error">{{f.value.errors}}</div>{% endif %}</td>
+			<td>{{ i.unit}}</td>
+		</tr>
+		{% endfor %}
+		<tr>
+		<th colspan="4">Resultaten</th>
+		</tr>
+	 	{% for f, o in fo %}
+		<tr class="{% cycle 'odd' 'even' %}">
+			<td>{{ o.name }}</td>
+			<td>{{ o.symbol}}</td>
+			<td>{{ f|floatformat}}</td>
+			<td>{{ o.unit}}</td>
+		</tr>
+		{% endfor %}
+		<tr>
+		<td></td>
+		<td colspan="3" align="right">
+			<input type='submit' value="Bereken"/>
+			{% if user.is_authenticated %}
+				<input type='button' value="Bewaren" />
+			{% endif %}
+			{% if refer %}
+ 				<input type='button' value="Terug" title="Terug naar de wizard om een probleemtype te selecteren" onclick='javascript:window.location.href="{{refer}}";' />
+			{% else %}
+				<input type='button' value="Terug" onClick="javascript:history.go(-1);" />
+			{% endif %}
+		</td>
+		</tr>
+		</table>
+		</td>
+		<td>
+		<table>
+			<tr><td colspan="2"><a href="{% if refer %}{{refer}}{% else %}/wizard/{{problem.category.id}}{% endif %}">
+			<img height="264" title="{{problem.description}}" src="/media/{% if problem.figure %}{{ problem.figure }}{% else %}{{ problem.category_figure }}{% endif %}"/>
+			</a></td></tr>
+			<tr><td><img src="/media/{{ problem.formula }}"/></td>
+			<td>
+				{% if problem.references.all|length > 0 %}
+				<h3>Referenties:</h3>
+				<ul>{% for r in problem.references.all %}
+					<li><a href="/media/{{r.link}}">{{r}}</a></li>
+				{% endfor %}
+				</ul><br>
+				{% endif %}
+				{% if problem.assumptions.all|length > 0 %}
+				<h3>Aannamen:</h3>
+				<ul>{% for a in problem.assumptions.all %}
+					<li>{{a}}</li>
+				{% endfor %}
+				</ul>
+				{% endif %}
+			</td>
+			</tr>
+		</table>
+		</td>
+	</table>
+</form>
+{% endblock wrap %}

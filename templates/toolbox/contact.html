@@ -1,0 +1,49 @@
+{% extends 'acacia.html' %}
+{% load i18n %}
+{% block title %}{{block.super}} - Contact{% endblock title %}
+{% block style %}
+{{ block.super }}
+<style>
+	textarea, input[type="text"] { width: 300px; }
+	td {vertical-align: top;}
+	.error { color:red; padding-left: 8px; }
+	img.bot {padding-right:"8px";vertical-align: top;}
+</style>
+{% endblock %}
+{% block wrap %}
+<h1><a href="http://www.linkedin.com/groups?gid=3746004&trk=hb_side_g"><img class="bot" src="/media/img/linkedin24.png"/></a>
+Contact</h1>
+<p>Voor vragen en/of opmerkingen kunt u terecht bij Acacia Water.
+<br>Ook voor toegang tot de volledige functionaliteit van de grondwatertoolbox kunt u contact met ons opnemen.
+<br>We zijn te vinden op <a href="http://www.linkedin.com/groups?gid=3746004&trk=hb_side_g">Linked In</a>
+<br><br>U kunt ons ook een mailtje sturen door gebruik te maken van het onderstaande formulier</p>
+<br>
+
+<form action="/contact/" method="post">
+	{% csrf_token %}
+    {{ form.non_field_errors }}
+    <table>
+    <tr>
+    	<td><label for="id_firstname">Voornaam:</label></td>
+    	<td>{{ form.firstname}}</td><td class="error">{{ form.firstname.errors|join:"," }}</td>
+    </tr>
+    <tr>
+	    <td><label for="id_lastname">Achternaam:</label></td>
+	    <td>{{ form.lastname}}</td><td class="error">{{ form.lastname.errors|join:","  }}</td>
+    </tr>
+    <tr>
+    	<td><label for="id_email">Email adres:</label></td>
+    	<td>{{ form.email }}</td><td class="error">{{ form.email.errors|join:","  }}</td>
+    </tr>
+    <tr>
+    	<td><label for="id_pnone">Telefoonnummer:</label></td>
+    	<td>{{ form.phone }}</td><td class="error">{{ form.phone.errors|join:","  }}</td>
+    </tr>
+    <tr>
+    	<td><label for="id_message">Bericht:</label></td>
+    	<td>{{ form.message}}</td><td class="error">{{ form.message.errors|join:","  }}</td>
+	</tr>
+    <tr><td colspan="2" align="right"><input type="submit" value="Verzenden" /></td></tr>
+    </table>
+</form>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	{% block meta %}
+	{% endblock %}
+	{% block style %}
+		<link href="/media/css/print.css" rel="stylesheet" type="text/css" />
+	{% endblock %}
+	{% block script %}{% endblock %}
+	<title>{% block title %}Acacia Grondwater Toolbox{% endblock %}</title>
+</head>
+
+{% load i18n %}
+
+<body>
+
+<div id="content_wrap">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+	    <td id="left"></td>
+	    <td id="center" valign="top">
+			<div id="vlak">
+			    {% block wrap %}
+			    {% endblock %}
+			</div>
+	    </td>
+	    <td id="right"></td>
+	  </tr>
+	</table>
+</div>
+   
+<div id="footer_wrap">
+  		<div id="footerafbeelding">
+        <table width="300" border="0">
+          <tr>
+            <td><a href="http://www.acaciawater.com"><img src="/media/img/toolbox/acacia.png" border="0" /></a></td>
+            <td><a href="http://www.wrij.nl"><img src="/media/img/toolbox/waterschaprijnenijssel.png" border="0" /></a></td>
+            <td><a href="http://www.veluwe.nl"><img src="/media/img/toolbox/waterschapveluwe.png" border="0" /></a></td>
+            <td><a href="http://www.scheldestromen.nl"><img src="/media/img/toolbox/scheldestromen.png" border="0" /></a></td>
+            <td><a href="http://www.zuiderzeeland.nl"><img src="/media/img/toolbox/zuiderzeeland.png" border="0"/></a></td>
+            <td><a href="http://www.stowa.nl"><img src="/media/img/toolbox/stowa.png" border="0" /></a></td>
+          </tr>
+        </table>
+        <div>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+{% autoescape off %}
+<h2>{{problem.category}}</h2>
+<h3>{{problem.name}}</h3>
+{% if problem.figure %}
+<img src="/media/{{problem.figure}}"/>
+{% else %}
+<img src="/media/{{problem.category_figure}}"/>
+{% endif %}
+<p>{{problem.description}}</p>
+<img src="/media/{{problem.formula}}"/>
+<h2>Aannames:</h2>
+<li>
+{% for a in problem.assumptions.all %}
+<ul{%if a.description%} title="{{a.description}}"{%endif%}>{{a}}</ul>
+{% endfor %}
+</li>
+<h2>Referenties:</h2>
+<li>
+{% for a in problem.references.all %}
+<ul><a href="/media/{{a.link}}">{{a}}</a></ul>
+{% endfor %}
+</li>
+{% endautoescape %}
+</body>
+</html>

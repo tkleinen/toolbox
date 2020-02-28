@@ -1,0 +1,52 @@
+{% extends 'acacia.html' %}
+{% block style %}
+{{ block.super }}
+<style>
+img.grayscale {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 0.3333 0\'/></filter></svg>#grayscale"); 
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+}
+</style>
+{% endblock style %}
+{% block title %}Grondwater Toolbox{% endblock %}
+{% block wrap %}
+
+<table class="welcome">
+<tr>
+<td colspan="3"><h1>Grondwater Toolbox</h1></td>
+</tr>
+{% for c in cats %}
+   {%if c.children.count == 0 and c.problem_set.count == 0 %}
+   <td style="color:gray"><i>{{c.name}}</i><br/><br/>
+   <img class="grayscale" title="(Nog niet beschikbaar)&#10;{{c.description}}"src="/media/{{ c.thumbnail }}" border="0"/>
+   <br/><br/>
+   </td>
+   {% else %}
+   <td><b>{{c.name}}</b><br/><br/>
+   <a href="/wizard/{{c.id}}{% if url %}?url={{url}}{% endif %}"><img title="{{c.description}}" src="/media/{{ c.thumbnail }}" border="0"/></a>
+   <br/><br/>
+   </td>
+   {% endif %}
+   {% if forloop.last %}
+   	 {% if user.is_authenticated %}
+        <td><b>{{user.username|capfirst}}'s Archief</b><br><br>
+        <a href="/dossier"><img title="Opgeslagen dossiers van {{user.first_name}} {{user.last_name}} openen" src="/media/img/dossiers.jpg" border="0"/></a>
+   		<br/><br/>
+        </td>
+        </tr>
+     {% else %}
+        <td style="color:gray"><i>Archief</i><br><br>
+        <img class="grayscale" title="(Niet beschikbaar)&#10;Opgeslagen dossiers openen" src="/media/img/dossiers.jpg" border="0"/>
+   		<br/><br/>
+        </td>
+        </tr>
+     {% endif %}
+   {% else %}
+     {% if forloop.counter|divisibleby:"3" %}
+       </tr><tr>
+     {% endif %}
+   {% endif %}
+{% endfor %}
+</table>
+{% endblock %}

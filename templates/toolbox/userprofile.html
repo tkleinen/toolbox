@@ -1,0 +1,14 @@
+{% extends "registration/base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'User profile' %}{% endblock %}
+{% block content %}
+<h2>Gebruikersprofiel</h2>
+<br>
+<table>
+<tr><td><label for="id_username">{% trans 'Username' %}:</label></td><td>{{form.username}}</td></tr>
+<tr><td><label for="id_first_name">Voornaam:</label></td><td>{{form.first_name}}</td></tr>
+<tr><td><label for="id_last_name">Achternaam:</label></td><td>{{form.last_name}}</td></tr>
+<tr><td><label for="id_date_joined">Datum aangemeld:</label></td><td>{{form.date_joined}}</td></tr>
+<tr><td><label for="id_last_login">Laatste login:</label></td><td>{{form.last_login}}</td></tr>
+</table>
+{% endblock %}

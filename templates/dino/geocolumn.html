@@ -1,0 +1,61 @@
+{% extends 'acacia_base.html' %}
+{% block title %} {{block.super}} - Dinoloket {% endblock %}
+{% block left %}{% endblock %}
+{% block right %}
+{% endblock %}
+{% block content %}
+<h2>Lagen in model {{column.modelMetadata.description}} voor locatie '{{locatie}}'</h2>
+<br>
+<table>
+<tr>
+<td valign="top">
+<table>
+	<tr>
+		<th>Naam</th>
+		<th>Bovenkant</th>
+		<th>Onderkant</th>
+		<th>Parameters</th>
+	</tr>
+	{% for gl in column.geoLayers.geoLayer %}
+		{% if gl.name %}
+			<tr class="{% cycle 'odd' 'even' %}">
+			<td>
+			{% if gl.onlineReference %}
+				<a href="{{gl.onlineReference}}"/>
+			{% endif %}
+			{{gl.name}}</td>
+			<td>{{gl.top}}</td>
+			<td>{{gl.bottom}}</td>
+			<td>
+			{% if gl.parameters.parameter|length %}
+				<table>
+				<tr>
+					<th>Naam</th>
+					<th>Omschrijving</th>
+					<th>Waarde</th>
+					<th>Eenheid</th>
+				</tr>
+				{% for p in gl.parameters.parameter %}
+					<tr>
+						<td>{{p.name}}</td>			
+						<td>{{p.description}}</td>			
+						<td>{{p.value}}</td>			
+						<td>{{p.unit}}</td>			
+					</tr>
+				{% endfor %}
+				</table>
+			{% else %}
+				
+			{% endif %}
+			</td>
+			</tr>
+		{% endif %}
+	{% endfor %}
+</table>
+</td>
+<td valign="top">
+<img src="data:image/png;base64,{{image.columnPicture}}"/>
+</td>
+</tr>
+</table>
+{% endblock %}

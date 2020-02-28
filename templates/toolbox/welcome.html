@@ -1,0 +1,24 @@
+{% extends 'acacia_intro.html' %}
+{% load mptt_tags %}
+{% block style %}
+	{{ block.super }}
+	<link href="/media/css/buttons.css" rel="stylesheet" type="text/css" />
+	<link href="/media/css/tooltip.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block title %}Toolbox Welkom{% endblock %}
+{% block wrap %}
+<div class="welcometext">
+<h1>Welkom bij de grondwater toolbox</h1>
+De grondwatertoolbox is een webapplicatie waarmee snel en efficient geohydrologische en geotechnische berekeningen uitgevoerd kunnen worden. De applicatie is gekoppeld aan landelijke databases, waardoor automatisch relevante gegevens van het grondwatersysteem worden verzameld. Gegevens uit landelijke databases en berekeningsresultaten kunnen met de webapplicatie worden
+gevisualiseerd op een kaart.
+<p>Het verzamelen van de benodigde data en het zoeken naar de juiste berekeningsmethode is niet langer een tijdrovend onderdeel maar wordt met de toolbox een kwestie van de spreekwoordelijke druk op de knop.
+Het gebruik leidt tot een ander belangrijk voordeel: standaardisatie. Alle waterschappen beoordelen met dezelfde uitgangspunten, gegevens en berekeningsmethoden. Hierdoor weten zowel vergunningaanvragers als vergunningverleners waar ze aan toe zijn.
+Dit verbetert de communicatie aanzienlijk.
+<p>
+De toolbox is flexibel opgezet zodat deze in de toekomst relatief eenvoudig uitgebreid kan worden voor het toetsen van hydraulica (bijv. opstuwing, compenserende berging, etc.), geotechnische berekeningen (bijv. toetsing keringen) en waterbeheer (bijv. toetsing GGOR).
+<p><br>
+{% if news %}
+<div class="news">{{news.text|safe}}</div>
+{% endif %}
+</div>
+{% endblock %}

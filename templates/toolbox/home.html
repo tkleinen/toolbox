@@ -1,0 +1,98 @@
+{% extends 'acacia_base.html' %}
+{% load mptt_tags %}
+{% block style %}
+	{{ block.super }}
+	<link href="/media/css/buttons.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block title %}Toolbox Home{% endblock %}
+{% block script %}
+<script type="text/javascript" src="/media/js/jstree/_lib/jquery.js"></script>
+<script type="text/javascript" src="/media/js/jstree/jquery.jstree.js"></script>
+<script type = "text/javascript">
+$(function () {
+	$("#cattree").jstree({ 
+		"themes" : {
+			"theme" : "default",
+			"dots" : true,
+			"icons" : true
+		},
+		"core" : {"animation": 50},
+        "json_data" : {
+        	"data": [
+        	    		{% recursetree nodes %}
+        	            {"data":{
+	        	            	"title":"{{ node.name }}",
+	        	            	"attr":{"href":"cat/{{node.id}}"}
+        	            	},
+        	            	"metadata": {id:{{node.id}}}{% if not node.is_leaf_node %},"children":[{{children}}]{% endif %}},
+        				{% endrecursetree %}
+        		]
+		},
+		"plugins" : [ "themes", "json_data", "ui" ]
+	}).bind("select_node.jstree", function (e, data) {
+		if($.data(data.rslt.obj[0], "id"))
+        {
+            id=$.data(data.rslt.obj[0], "id")
+    	    $("#details").load("/cat/" + id);
+        }
+	  });
+});
+</script>
+<script type = "text/javascript">
+$(function () {
+	$("#dossiers").jstree({ 
+		"themes" : {
+			"theme" : "default",
+			"dots" : true,
+			"icons" : true
+		},
+		"core" : {"animation": 50},
+        "json_data" : {
+        	"data": [
+        	         {% for dos in dossiers %}
+        	            {	"data":	{
+        	            		"title":"{{dos.case_number}}",
+        	            		"attr":{"href":"admin/toolbox/case/{{dos.id}}"}
+        	            	},
+        	            	"metadata": {id:{{dos.id}}}
+        	            },
+        	         {% endfor %}
+        		]
+		},
+		"plugins" : [ "themes", "json_data", "ui" ]
+	}).bind("select_node.jstree", function (e, data) {
+		if($.data(data.rslt.obj[0], "id"))
+        {
+			window.location="/dossier/" + $.data(data.rslt.obj[0], "id")
+             //id=$.data(data.rslt.obj[0], "id")
+     	     //$("#details").load("/edit/" + id);
+        }
+	  });
+});
+</script>
+{% endblock script %}
+{% block left %}
+<div class="treeheader">Categorieen</div>
+<div id="cattree" class="tree"></div>
+{% endblock %} 
+{% block content %}
+<h1>Welkom bij de grondwater toolbox</h1>
+De grondwatertoolbox is een webapplicatie (www.grondwatertoolbox.nl) waarmee snel en efficiënt geohydrologische en geotechnische berekeningen uitgevoerd kunnen worden. De applicatie is gekoppeld aan landelijke databases, waardoor automatisch relevante gegevens van het grondwatersysteem worden verzameld. Gegevens uit landelijke databases en berekeningsresultaten kunnen met de webapplicatie worden
+gevisualiseerd op een kaart.De webapplicatie Grondwatertoolbox laat de vergunningverlener zijn taken eenvoudiger, efficienter en met gevalideerde berekeningsmethoden uitvoeren. Het verzamelen van de benodigde data en het zoeken naar de juiste berekeningsmethode is niet langer een tijdrovend onderdeel maar wordt met de toolbox een kwestie van de spreekwoordelijke druk op de knop. 
+Het gebruik leidt tot een ander belangrijk voordeel, namelijk standaardisatie voor alle waterschappen. Alle waterschappen beoordelen met dezelfde uitgangspunten, gegevens en berekeningsmethoden. Hierdoor weten zowel vergunningaanvragers als vergunningverleners, waar ze aan toe zijn. Dit verbetert de communicatie aanzienlijk.
+De toolbox wordt flexibel opgezet zodat deze in de toekomst relatief eenvoudig uitgebreid kan worden voor het toetsen van hydraulica (bijv. opstuwing, compenserende berging, etc.), geotechnische berekeningen (bijv. toetsing keringen) en waterbeheer (bijv. toetsing GGOR).
+<p><br/>Nog meer tekst hier...</p>
+<!-- <a href="admin/toolbox/case/copy" class="button blue">Kopieer Dossier</a> -->
+<div id="details">
+</div>
+{% endblock %}
+{% if user.is_authenticated %}
+{% block right %}
+<div class="treeheader">Mijn dossiers</div>
+{% with total=dossiers.count %}
+{{ total }} dossier{{ total|pluralize }}
+{% endwith %}
+<div id="dossiers" class="tree"></div>
+<a href="/admin/toolbox/case/add" class="button blue">Nieuw Dossier</a>
+{% endblock %} 
+{% endif %}

@@ -1,0 +1,547 @@
+img, fieldset { display:block; border:0px;}
+	:focus { -moz-outline-style: none;}
+	
+a{
+outline:medium none;
+color: #1a155e;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #1a155e;
+}
+
+hr{
+color: 1px solid;
+}
+html, body {
+	background-image: url(images/background.png);
+	background-color:#f3f3f3;
+	background-repeat:no-repeat;
+	background-attachment: inherit;
+	background-position:center top;
+}
+
+body
+{
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #616161;
+	line-height:16px;
+	margin:0 auto;
+	background-image: url(images/background.png);
+	background-repeat:no-repeat;
+	background-attachment: inherit;
+	background-position:center top;
+}
+
+h1
+{
+	font: 22px Arial, Helvetica, sans-serif;
+	color: #1a155e;
+	line-height:17px;
+	padding-top:5px;
+	padding-bottom:5px;
+
+}
+
+h2
+{
+	font: 18px Arial, Helvetica, sans-serif;
+	color: #1a155e;
+	line-height:17px;
+
+}
+
+h3
+{
+	font: 18px Arial, Helvetica, sans-serif;
+	color: #1a155e;
+	line-height:22px;
+	padding-top:5px;
+	padding-bottom:10px;
+
+}
+
+#wrap
+{
+	margin: 0 auto;
+	width: 980px;
+	min-height:280px;
+	background: url(images/background2.png) no-repeat;
+}
+
+#header
+{
+	width: 980px;
+	height: 206px;
+	margin: 0 auto;
+	float:left;
+	position:relative;
+}
+#header2
+{
+	width: 930px;
+	height: 206px;
+	background-image: url(images/lineheaderbg.png);
+	background-repeat: repeat-x;
+	margin:0 auto;
+}
+
+#hoofdmenu
+{
+	width:883px;
+	height:34px;
+	float:left;
+	display: inline;
+	text-align:left;
+}
+
+#content2
+{
+	width: 980px;
+	height: auto;
+	margin: 0 auto;
+	float:left;
+	background: url(images/background5.png) no-repeat;
+	background-color:#FFFFFF;
+	position: relative;
+	z-index:1;
+}
+
+#content
+{
+	width: 980px;
+	height: 100%;
+	float:left;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	position: relative;
+	z-index:1;
+}
+#content3
+{
+	width: 980px;
+	height: auto;
+	margin: 0 auto;
+	float:left;
+}
+
+
+#menu 
+{
+	clear:left;
+	float:left;
+	width:980px;
+	padding:0;
+	font-size:13px;
+	display: inline;
+	height: 41px;
+	position:relative;
+	z-index:100;
+	background-image: url(images/background4.png);
+
+}
+
+#tekst
+{
+	width:628px;
+	min-height:500px;
+	float:left;
+	margin-top: 20px;
+	padding-left: 40px;
+	overflow:hidden;
+	display: inline;
+	text-align:left;
+}
+
+#laatstenieuws
+{
+	height:187px;
+	width:935px;
+	float: left;
+	padding-left: 20px;
+	background-image: url(images/laatste-nieuws2.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+#newsblok
+{
+	height:154px;
+	width:295px;
+	bottom: 0px;
+	padding: 8px;
+	float: left;
+}
+
+#nieuws
+{
+	width:271px;
+	min-height:500px;
+	float:left;
+	margin-top: 20px;
+	overflow:hidden;
+	padding:0px 0px 0px 15px;
+}
+
+#footer
+{
+	width: 900px;
+	height: 31px;
+	margin: 0 auto;
+	float:left;
+	padding:20px 40px 0px 40px;
+	margin-top:-10px;
+	color: #1a155e;
+	text-align: center;
+	font-size: 13px;
+}
+#newstitel {
+	width:240px;
+	height: 30px;
+	margin:0 auto;
+	margin-top:-5px;
+	padding-top: 0px;
+	padding-bottom: 5px;
+}
+#news {
+	width:240px;
+	height: auto;
+	padding-top: 0px;
+	padding-bottom: 5px;
+	margin:0 auto;
+}
+#logo {
+	width:311px;
+	height: 206px;
+	background-image: url(images/logo.jpg);
+	background-repeat: repeat-x;
+	float:left;
+}
+#banner {
+	width:618px;
+	height: 104px;
+	position: absolute;
+	top: 15px;
+	left: 337px;
+	overflow:hidden;
+}
+#slogan {
+	width:617px;
+	height: 66px;
+	position: absolute;
+	top: 125px;
+	left: 338px;
+	line-height:36px;
+	overflow:hidden;
+}
+
+#vlaggetjes {
+	width:30px;
+	height: 20px;
+	position: absolute;
+	top: 16px;
+	left: 293px;
+	text-align:right;
+}
+
+#vlaggetjes2 {
+	width:30px;
+	height: 20px;
+	position: absolute;
+	top: 16px;
+	left: 257px;
+	text-align:right;
+}
+
+#line
+{
+	width:960px;
+	margin: 0 auto;
+	height:20px;
+	text-align:right;
+	padding-top:10px;
+	font-size:10px;
+	float:left;
+	color:#777;
+}
+
+#line a
+{
+	color:#777;
+	text-decoration:none;
+}
+
+#line a:hover
+{
+	color:#777;
+	text-decoration:underline;
+}
+
+.tabelbg{
+	background:url(images/newstop.png) no-repeat;
+}
+.tabelbg1{
+	background-image: url(images/newsmiddle.png);
+}
+.tabelbg2{
+	background-image: url(images/newsbottem.png);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	####	Header Menu #####
+	#######################
+
+	Horizontal Drop-Down Menu based off :
+	http://www.tanfa.co.uk/css/examples/menu/tutorial-h.asp
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+#navContainer 
+{
+	height:25px;
+	display:block;
+	clear:both;
+	color: #1a155e;
+	float:right;
+	font-size:15px;
+	text-align:left;
+}
+
+
+
+/* end menu */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	####	Header Menu #####
+	#######################
+
+	Horizontal Drop-Down Menu based off :
+	http://www.tanfa.co.uk/css/examples/menu/tutorial-h.asp
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+
+
+/* Remove List Formattings
+~~~~~~~~~~~~~~~~~~~~  */
+ul.menu, li.menu 
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	text-align:left;
+}
+
+
+#menu2 
+{
+	float:left;
+	height: 22px;
+	border: 0;
+	padding:0;
+	width: 650px;
+	text-align:left;
+	font-size:13px;
+}
+
+#menu2 ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-align: center;
+}
+
+/* Root Level Link Formatting */
+#menu2 ul li {
+	float: left; 
+	color: #fff; 
+	text-align: center; 
+	font-weight: normal; 
+	list-style-type: none; 
+	list-style-image: none;
+}
+
+#menu2 ul li a 
+{
+	display: block;
+	padding: 2px 9px 13px 9px;
+	margin-left:6px;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: normal;
+	font-size: 14px;
+	text-align:left;
+	
+}
+
+/* Root Level link hover */
+#menu2 ul li a:hover, #menu2 li a:focus, #menu2 li a:active, #menu2 ul li a.active, #menu2 a.menu-current {
+	color: #e6e7f0;
+	background:url(images/menubg.gif) center;
+}
+
+#menu2 a.menu-parent {
+	color: #FFF;
+}
+
+/*Current page Customisations*/
+#menu2 a.menu-current		{
+	font-weight: normal;
+	color: #FFF;
+} 
+
+
+
+/* 2nd Child menu */
+#menu2 .menu li ul {
+	width:178px;
+	position: absolute; 
+	margin: -1px 0 0 -1px; 
+	padding: 8px 10px 7px 8px;
+	display: none; 
+	font-size: 11px; 
+	background: #e2e1e1;
+	border:1px solid #10084f;
+
+}
+
+#menu2 .menu li ul li {	
+	width:150px;
+	text-align: left;
+	font-weight: normal; 
+	margin: 0; 
+	padding: 0;
+	display:inline;
+	
+}
+
+#menu2 .menu li ul li a {
+	font-size:11px;
+	width:150px;
+	color: #000000; 
+	margin-left:0px;
+	font-weight: normal;  
+	padding: 8px 10px 7px 18px;
+	font-weight: normal;
+	font-size: 12px;
+	text-align:left;
+}
+
+/* 2nd Child link hover */
+#menu2 .menu li ul a:hover,  #menu2 .menu li ul a.menu-current {
+
+	background: #1a145e;
+	color:#FFFFFF;
+}
+
+#menu2 .menu li ul a.menu-parent {
+	color: #000000;
+	}
+
+/* Show and hide */
+#menu2 .menu li:hover ul, #menu2 .menu li a:focus ul, #menu2 .menu li.subMenu ul {
+	display: block;
+}
+
+#menu2 .menu li ul ul { 
+	display: none;
+}
+
+#menu2 .menu li:hover ul ul, #menu2 .menu li.subMenu ul ul {
+	display: none;
+}
+
+#menu2 .menu li:hover>ul, #menu2 .menu li li:hover>ul, #menu2 .menu li.subMenu>ul, #menu2 .menu li li.subMenu>ul {
+	display: block;  
+	z-index: 1000;
+}
+
+
+/* 3rd Child Menu Appreances */
+#menu2 .menu li ul li ul	{ 
+	margin: 10px 0 0 -10%; 
+	z-index: 9999;  
+}
+
+#menu2 .menu li ul li ul li	{
+	width: 11em;
+}
+
+#menu2 .menu li ul li ul li a 	{ 
+	width: 10.5em;
+}
+
+/* 4rd Child Menu Appreances */
+#menu2 .menu li ul li ul li ul	{  
+	width: 9em; 
+}
+
+#menu2 .menu li ul li ul li ul li	{  
+	width: 9em; 
+}
+
+#menu2 .menu li ul li ul li ul li a 	{ 
+	width: 8.5em;
+}
+
+/* Positioning the Pop-out Drops */
+#menu2 li {
+	position: relative;
+}
+
+#menu2 ul ul ul {
+	position: absolute;
+	top: 1px;
+	left: 100%;
+}
+
+/* IE6 only 
+*html #nav .menu li ul li ul {margin-left:0 ! important;}*/
+
+/* IE7 only 
+*+html #nav .menu li ul li ul {margin-left:0 ! important;}*/
+
+/* ul class="ullev1" , sorry doesnt work
+#nav .ullev1  {z-index: 1000 ! important; background: #4b4c4d;}
+#nav .ullev2  {z-index: 2000 ! important; background: #4b4c4d;}
+#nav .ullev3  {z-index: 3000 ! important; background: #4b4c4d;}
+*/
+
+/* Better: */
+#menu2 li:hover {
+	z-index: 10000;	/* ...and here. this makes sure active item is always above anything else in the menu */
+	white-space: normal;/* required to resolve IE7 :hover bug (z-index above is ignored if this is not present)
+							see http://www.tanfa.co.uk/css/articles/pure-css-popups-bug.asp for other stuff that work */
+}
+
+
+/* end menu */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	####	Header Menu #####
+	#######################
+
+	Horizontal Drop-Down Menu based off :
+	http://www.tanfa.co.uk/css/examples/menu/tutorial-h.asp
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+#menu2
+{
+	list-style-type: none;
+	width: 930px;
+	font-family:Arial, helvetica, sans-serif;
+	font-weight:bold;
+	text-align: left;
+	font-size:12px;
+	height:31px;
+	background-image: url(images/buttonbg.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-left: 25px;
+	padding-top: 10px;
+	z-index: 999;
+}

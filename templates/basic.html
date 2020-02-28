@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	{% block meta %} 
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	{% endblock meta %}
+	{% block style %}{% endblock style %}
+	{% block script %}{% endblock script %}
+	<title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+{% block header %}{% endblock header %}
+{% block contents %}
+  {% block left %}{% endblock left %}
+  {% block center %}{% endblock center %}
+  {% block right %}{% endblock right %}
+{% endblock contents %}
+{% block footer %}{% endblock footer %}
+</body>
+</html>

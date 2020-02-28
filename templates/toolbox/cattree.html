@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load mptt_tags %}
+{% block title %}Toolbox Categories{% endblock %}
+{% block script %}
+<script type="text/javascript" src="/media/js/jstree/_lib/jquery.js"></script>
+<script type="text/javascript" src="/media/js/jstree/jquery.jstree.js"></script>
+<script type = "text/javascript">
+$(function () {
+	$("#cattree").jstree({ 
+		"themes" : {
+			"theme" : "default",
+			"dots" : true,
+			"icons" : true
+		},
+		"core" : {"animation": 50},
+        "json_data" : {
+        	"data": [
+        	    		{% recursetree nodes %}
+        	            {"data":"{{ node.name }}","metadata": {id:{{node.id}}}{% if not node.is_leaf_node %},"children":[{{children}}]{% endif %}},
+        				{% endrecursetree %}
+        		]
+		},
+		"ui": {},
+		
+		"plugins" : [ "themes", "json_data", "ui" ]
+	}).bind("select_node.jstree", function (e, data) {
+		if($.data(data.rslt.obj[0], "id"))
+        {
+            id=$.data(data.rslt.obj[0], "id")
+    	    $("#details").load("/cat/" + id);
+        }
+	  });
+});
+</script>
+{% endblock script %}
+{% block leftbar %}
+<div class="cat_header">C A T E G O R I E E E N</div>
+<div id="cattree">Category tree</div>
+{% endblock %}
+{% block content %}
+<div id="details">
+Toelichting
+</div>
+{% endblock content %}

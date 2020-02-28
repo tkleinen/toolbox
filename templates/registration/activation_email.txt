@@ -1,0 +1,6 @@
+{% load humanize %}
+Wij hebben voor u een nieuwe account aangemaakt voor de grondwater toolbox. De account dient geactiveerd te worden voor gebruik. Dat kan via onderstaande link:
+
+http://82.192.75.237/accounts/activate/{{ activation_key }}/
+
+Als u geen account aangevraagd hebt hoeft u niets te doen. De aanvraag verloopt automatisch na {{ expiration_days|apnumber }} dagen.

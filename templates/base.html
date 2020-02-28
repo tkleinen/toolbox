@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="/media/css/style2.css" rel="stylesheet" type="text/css" />
+	<link href="/media/img/toolbox.ico" rel="icon" type="image/x-ico" />
+	{% block script %}{% endblock %}
+	<title>{% block title %}Acacia Grondwater Toolbox{% endblock %}</title>
+</head>
+{% csrf_token %}
+{% load i18n %}
+<body>
+<div id="wrapper">
+	<div id="header">
+		{% block banner %}
+		<div style="float:left"><strong>Grondwater Toolbox</strong></div>
+		{% if user.is_authenticated %}
+		{% trans 'Welcome,' %}
+		<strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong> | 
+		<a href=/admin/password_change>{% trans 'Change password' %}</a> | 
+		<a href=/admin/logout>{% trans 'Log out' %}</a>&nbsp;&nbsp;
+		{% else %}
+		<a href="/login/">{% trans 'Log in' %}</a>&nbsp;&nbsp;
+		{% endif %}
+		{% endblock %}
+	</div><!-- #header-->
+	<div id="middle">
+		<div id="container">
+			<div id="content">
+				{% block content %}
+				<strong>Content:</strong> Sed placerat accumsan ligula. Aliquam felis magna, congue quis, tempus eu, aliquam vitae, ante. Cras neque justo, ultrices at, rhoncus a, facilisis eget, nisl. Quisque vitae pede. Nam et augue. Sed a elit. Ut vel massa. Suspendisse nibh pede, ultrices vitae, ultrices nec, mollis non, nibh. In sit amet pede quis leo vulputate hendrerit. Cras laoreet leo et justo auctor condimentum. Integer id enim. Suspendisse egestas, dui ac egestas mollis, libero orci hendrerit lacus, et malesuada lorem neque ac libero. Morbi tempor pulvinar pede. Donec vel elit.
+				{% endblock %}
+			</div><!-- #content-->
+		</div><!-- #container-->
+		<div class="sidebar" id="sideLeft">
+			{% block leftbar %}
+			<strong>Left Sidebar:</strong> Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.
+			{% endblock %}
+		</div><!-- .sidebar#sideLeft -->
+<!-- 		<div class="sidebar" id="sideRight"> -->
+<!-- 			{% block rightbar %} -->
+<!-- 			<strong>Right Sidebar:</strong> Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit. -->
+<!-- 			{% endblock %} -->
+<!-- 		</div>.sidebar#sideRight -->
+	</div><!-- #middle-->
+</div><!-- #wrapper -->
+
+<div id="footer">
+	{% block footer %}
+	<a href="http://www.acaciawater.com"><img style="padding-left:4px" src="/media/img/logo.jpg"/></a>
+	{% if user.is_authenticated %}
+	<a href="{{user.profile.group.url}}"><img style="padding-right:4px" src="/media/{{user.profile.group.logo}}"/></a>
+	{% endif %}
+	<a href="http://www.stowa.nl"><img style="padding-right:4px;float:right;background:#417690" src="/media/img/stowa_logo.png"/></a>
+	{% endblock %}
+</div><!-- #footer -->
+</body>
+</html>

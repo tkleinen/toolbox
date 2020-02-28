@@ -1,0 +1,47 @@
+{% extends 'acacia.html' %}
+{% block wrap %}
+<table>
+<tr><td>zaaknummer</td><td>{{ case.case_number }}</td></tr>
+<tr><td>datum</td><td>{{ case.date_modified }}</td></tr>
+<tr><td>behandelaar</td><td>{{case.user.first_name}} {{case.user.last_name}} </td></tr>
+<tr><td>locatie</td><td>{{case.location}} (lon={{ case.location.location.x|floatformat:6 }},lat={{case.location.location.y|floatformat:6 }})</td></tr>
+<tr><td>RD-coordinaten</td><td>(x={{ case.location.rd_coords.x|floatformat }},y={{case.location.rd_coords.y|floatformat }})</td></tr>
+<tr><td>methode</td><td>{{case.problem}}</td></tr>
+</table>
+<br>
+<table>
+<tr>
+<th>Invoer</th>
+<th>Symbool</th>
+<th>Waarde</th>
+<th>Eenheid</th>
+</tr>
+{% for par in case.inputs %}
+<tr class="{% cycle 'odd' 'even' %}">
+<td>{{par.variable.name}}</td>
+<td>{{par.variable.symbol}}</td>
+<td>{{par.value}}</td>
+<td>{{par.variable.unit}}</td>
+</tr>
+{% endfor %}
+<tr>
+<th>Uitvoer</th>
+<th>Symbool</th>
+<th>Waarde</th>
+<th>Eenheid</th>
+</tr>
+{% for par in case.outputs %}
+<tr class="{% cycle 'odd' 'even' %}">
+<td>{{par.variable.name}}</td>
+<td>{{par.variable.symbol}}</td>
+{% if par.variable.unit == "tabel" %}
+<td></td>
+<td><a href="/plot/{{par.id}}">Grafiek</a></td>
+{% else %}
+<td>{{par.value|floatformat:2}}</td>
+<td>{{par.variable.unit}}</td>
+{% endif %}
+</tr>
+{% endfor %}
+</table>
+{% endblock %} 

@@ -1,0 +1,10 @@
+{% extends 'acacia_base.html' %}
+{% block meta %}
+{{map.media}}
+{% endblock %}
+{% block content %}
+<p>Dossier: {{case.case_number}}</p>
+<p>Locatie: <a href="/admin/toolbox/location/{{case.location.id}}">{{case.location}}</a></p>
+{{map}}
+<p>Probleem: <a href="/admin/toolbox/problem/{{case.problem.id}}">{{case.problem}}</a></p>
+{% endblock %} 

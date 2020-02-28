@@ -1,0 +1,12 @@
+{% extends 'acacia.html' %}
+{% block wrap %}
+<form method="post" action="/dossier">
+	{% csrf_token %}
+	<table>
+	{% for fld in form %}
+	<tr><td>{{fld.label_tag}}</td><td>{{fld}}</td><td class="error">{{fld.errors|join:", "}}</td></tr>
+	{% endfor %}
+	</table>
+	<input type='submit' value='Opslaan'/>
+</form>
+{% endblock wrap %}

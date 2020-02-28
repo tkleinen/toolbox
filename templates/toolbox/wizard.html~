@@ -1,0 +1,63 @@
+{% extends 'acacia.html' %}
+{% load mptt_tags %}
+{% block style %}
+	{{ block.super }}
+	<link href="/media/css/buttons.css" rel="stylesheet" type="text/css" />
+	<link href="/media/css/tooltip.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block script %}
+<link href="/static/olwidget/css/olwidget.css" type="text/css" media="all" rel="stylesheet" />
+<script type="text/javascript" src="http://openlayers.org/api/2.10/OpenLayers.js"></script>
+<script type="text/javascript" src="/static/olwidget/js/olwidget.js"></script>
+<script type="text/javascript" src="//maps.google.com/maps/api/js?v=3&sensor=false"></script>
+<script type="text/javascript" src="//openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+{% endblock %}
+{% block title %}Toolbox Wizard{% endblock %}
+{% block wrap %}
+<table class="parent">
+<tr>
+   <td>Home<br>
+   <a href="/"><img title="Home page" src="/media/img/home_white.png"/></a>
+   </td>
+{%for p in parents %}
+   <td>{{p.name}}<br>
+   <a href="{{p.id}}"><img title="{{p.description}}" src="/media/{{ p.thumbnail }}"/></a>
+   </td>
+{% endfor %}
+</tr>
+</table>
+<div class="sep"></div>
+{% if cats %}
+<table class="welcome">
+<tr>
+{% for c in cats %}
+   <td>
+   {{c.name}}<br>
+   <a href="{{c.id}}"><img title="{{c.description}}" src="/media/{{ c.thumbnail }}"/></a>
+   </td>
+   {% if forloop.last %}
+		</tr>
+   {% else %}
+     {% if forloop.counter|divisibleby:"4" %}
+       </tr><tr>
+     {% endif %}
+   {% endif %}
+{% endfor %}
+</table>
+{% else %}
+<a href="/admin/toolbox/case/add" class="button blue">Volgende -></a>
+<div id='map'></div>
+<textarea id='geom1'></textarea>
+<script type='text/javascript'>
+    new olwidget.Map('map', [
+        new olwidget.EditableLayer('geom1', {'name': "Bemalingslocatie"}),
+    ], { 
+    	
+     	'mapDivStyle': {width: '50%', height: '400px'},
+     	'defaultLat': 52.0,
+     	'defaultLon': 4.5,
+     	'defaultZoom': 7,
+    	'overlayStyle': {'fillColor': "#ff0000"}});
+</script>
+{% endif %}
+{% endblock %}

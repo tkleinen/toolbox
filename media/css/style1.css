@@ -1,0 +1,106 @@
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+
+body {
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #616161;
+}
+
+div.breadcrumbs {
+    background: white url(../img/nav-bg-reverse.gif) 0 -10px repeat-x;
+    padding: 2px 8px 3px 8px;
+    font-size: 11px;
+    color: #999;
+    border-top: 1px solid white;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -60px;
+}
+
+.footer, .push {
+	height: 60px;
+}
+
+.banner
+{
+    background: #417690;
+	height: 24px;
+	width: 100%;
+	color: white;
+	font: 12px Tahoma, Arial, Helvetica, sans-serif;
+	text-align: right;
+	line-height: 2em;
+}
+.bannertitle
+{
+	text-align: left;
+}
+
+.banner a:visited {
+	color:white;	
+	text-decoration:none;	
+}
+.banner a:link {
+	color:white;	
+	text-decoration:none;	
+}
+
+.banner a:hover {
+	text-decoration:underline;	
+}
+
+.content
+{
+	float: center;
+	width: 80%;
+	background-color: white;
+}
+
+.leftbar
+{
+	float: left;
+	width: 20%;
+	border: solid 1px gray;
+}
+
+.rightbar
+{
+	float: right;
+	width: 20%;
+	border: solid 1px gray;
+}
+
+.footer {
+	border-top:thin dotted #417690;
+	background-image: url(../img/line50.jpg);
+	background-repeat: repeat-x;
+}
+
+.footer img {
+	height: 60px;
+	border: none;
+	float: left;
+}
+
+.odd {
+	background-color: azure
+}
+
+.even {
+	background-color: white
+}
+
+#cattree {
+	border: thin solid orange;
+}
+
