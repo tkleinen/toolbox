@@ -14,7 +14,7 @@ services:
   web:
     build: .
     working_dir: /code
-    command: /bin/bash -c "mysql -hdb -uacacia -pBeaumont1 toolbox < db.sql && python toolbox/manage.py runserver 0:8000"
+    command: /bin/bash -c "mysql -hdb -uacacia -pBeaumont1 toolbox < backup_1803072242.sql && python toolbox/manage.py runserver 0:8000"
     volumes:
       - .:/code
     ports:
