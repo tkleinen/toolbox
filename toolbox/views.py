@@ -183,7 +183,7 @@ def bewerk(request,pid):
         data = [{'value': v.default_value} for v in inp]
         formset = EditFormset(initial=data)
         formset.input_variables = inp
-        request.session['ref'] = request.META['HTTP_REFERER']
+        request.session['ref'] = request.META.get('HTTP_REFERER')
         
     ref = request.session['ref']
     fi = zip(formset, inp)
