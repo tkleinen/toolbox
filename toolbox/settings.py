@@ -20,11 +20,11 @@ LOGOUT_URL = "/"
 DATABASES = {
     'default': {
         'ENGINE': 'mysql',
-        'NAME': 'toolbox',                      # Or path to database file if using sqlite3.
-        'USER': 'acacia',                      # Not used with sqlite3.
-        'PASSWORD': 'Beaumont1',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'NAME': 'toolbox',
+        'USER': 'acacia',
+        'PASSWORD': 'Beaumont1',
+        'HOST': 'db',
+        'PORT': '3306',
     }
 }
 
