@@ -11,6 +11,5 @@ WORKDIR /code
 RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 RUN python get-pip.py && rm get-pip.py
 COPY . .
-RUN pip install pip --upgrade && pip install --no-binary django,django-olwidget -r requirements.txt
-
+RUN pip install --no-binary django,django-olwidget -r requirements.txt
 
