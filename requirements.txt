@@ -5,4 +5,4 @@ mysqlclient==1.4.6
 django-olwidget==0.61.0
 django-registration==0.8
 django-analytical==0.15.0
-
+scipy==1.2.3
