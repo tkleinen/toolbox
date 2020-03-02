@@ -24,8 +24,8 @@
 				<a href="{{gl.onlineReference}}"/>
 			{% endif %}
 			{{gl.name}}</td>
-			<td>{{gl.top}}</td>
-			<td>{{gl.bottom}}</td>
+			<td>{{gl.top.label}}</td>
+			<td>{{gl.bottom.label}}</td>
 			<td>
 			{% if gl.parameters.parameter|length %}
 				<table>
@@ -39,7 +39,7 @@
 					<tr>
 						<td>{{p.name}}</td>			
 						<td>{{p.description}}</td>			
-						<td>{{p.value}}</td>			
+						<td>{{p.value.value}}</td>			
 						<td>{{p.unit}}</td>			
 					</tr>
 				{% endfor %}

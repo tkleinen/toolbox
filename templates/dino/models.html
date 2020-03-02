@@ -24,7 +24,7 @@
 			<td>{{m.modelMetadata.depthUnit}}</td>
 			<td>{{m.modelMetadata.depthreference}}</td>
 			<td>{{m.modelMetadata.contact}}</td>
-			<td>{{m.modelMetadata.keywords}}</td>
+			<td>{% for key,value in m.modelMetadata.keywords.items %}{{value|join:","}}{%endfor%}</td>
 		</tr>
 	{% endfor %}
 </table>

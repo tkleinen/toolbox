@@ -40,9 +40,9 @@ class Dino(object):
     def list_models2(self,x,y):
         path='models/list?x=%g&y=%g' % (x,y)
         resp = self.get(path)
-        lmr = resp['listModelsResponse']
-        models = lmr['geo3DModels']
-        return models['geo3DModel']
+#         lmr = resp['listModelsResponse']
+        models = resp.get('geo3DModels')
+        return models.get('geo3DModel') if models else None
 
     def list_rasters(self,model,resolution=100,modelUnitName=None):
         path='models/%s/%d/rasters/%s' % (model,resolution,modelUnitName)
@@ -58,16 +58,12 @@ class Dino(object):
     def sample_column(self,model,x,y,resolution=100):
         path='models/%s/%d/columnsample?x=%g&y=%g' % (model,resolution,x,y)
         resp = self.get(path)
-        scr = resp['sampleColumnResponse']
-        col = scr['geoColumn']
-        return col
+        return resp.get('geoColumn')
 
     def draw_column(self,model,x,y,resolution=100,width=200,height=400):
         path='models/%s/%d/columnpicture?x=%g&y=%g&iw=%d&ih=%d' % (model,resolution,x,y,width,height)
         resp = self.get(path)
-        dcr = resp['drawColumnResponse']
-        pict = dcr['columnPicture']
-        return pict
+        return resp.get('columnPicture')
 
 if (__name__ == '__main__'):
     x=270000.0
