@@ -11,6 +11,7 @@ services:
        MYSQL_PASSWORD: 'Beaumont1'
        MYSQL_ROOT_PASSWORD: 'Beaumont1'
     volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
       - toolbox:/var/lib/mysql
   web:
     build: .
