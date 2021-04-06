@@ -3,7 +3,7 @@ django-mptt==0.5.2
 django-categories==1.0
 mysqlclient==1.4.6
 django-olwidget==0.61.0
-django-registration==0.8
+django-registration==3.1.2
 django-analytical==0.15.0
 scipy==1.2.3
 Pillow==6.2.2
